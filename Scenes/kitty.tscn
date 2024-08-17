@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://sbbs4c3dcyse"]
+
+[ext_resource type="Script" path="res://Scripts/kittyMovement.gd" id="1_lckaq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2roum"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xudmo"]
+
+[node name="KittyBody3D" type="CharacterBody3D"]
+script = ExtResource("1_lckaq")
+
+[node name="KittyCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_2roum")
+
+[node name="KittyMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_xudmo")
+
+[node name="KittyMesh" type="MeshInstance3D" parent="KittyMesh"]
+transform = Transform3D(0.2, 0, 0, 0, -8.74228e-09, -0.2, 0, 0.2, -8.74228e-09, 0, 0.43973, 0.531999)
+mesh = SubResource("CapsuleMesh_xudmo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
