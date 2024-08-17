@@ -22,6 +22,7 @@ func _physics_process(delta: float) -> void:
 		begin_recording()
 	if (doReplay == true):
 		get_recording()
+		
 	pass
 
 func begin_recording():

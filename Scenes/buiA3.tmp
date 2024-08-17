@@ -1,13 +1,11 @@
-[gd_scene load_steps=11 format=4 uid="uid://tqqalqcpwhhk"]
+[gd_scene load_steps=10 format=4 uid="uid://tqqalqcpwhhk"]
 
 [ext_resource type="Script" path="res://Scripts/hurtbox.gd" id="1_1lfg3"]
 [ext_resource type="Script" path="res://building.gd" id="1_5b4ps"]
 [ext_resource type="Script" path="res://addons/destruction/destruction.gd" id="2_th1ut"]
 [ext_resource type="PackedScene" uid="uid://cejwbxfqigr77" path="res://Scenes/broken.tscn" id="3_n5u57"]
-[ext_resource type="PackedScene" uid="uid://b0qek6atrqxe4" path="res://Scenes/building2.tscn" id="5_qksls"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g1kfs"]
-size = Vector3(1.99997, 5.32627, 1.98484)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1dhja"]
 resource_name = "Material"
@@ -54,11 +52,11 @@ size = Vector3(1.32428, 3.57379, 1.32446)
 script = ExtResource("1_5b4ps")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00408205, 2.72045, 0.00408205)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_g1kfs")
 
 [node name="Shell" type="MeshInstance3D" parent="CollisionShape3D" node_paths=PackedStringArray("shard_container")]
-transform = Transform3D(1, 0, 0, 0, 2.667, 0, 0, 0, 1, -0.00408205, 0.00705814, -0.00408205)
+transform = Transform3D(1, 0, 0, 0, 2.667, 0, 0, 0, 1, 0, 2.22751, 0)
 mesh = SubResource("ArrayMesh_gqu6y")
 skeleton = NodePath("")
 script = ExtResource("2_th1ut")
@@ -73,8 +71,3 @@ script = ExtResource("1_1lfg3")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.00132751, 2.74318, -0.0140991)
 shape = SubResource("BoxShape3D_0xf7f")
-
-[node name="BuildingTest2" parent="." instance=ExtResource("5_qksls")]
-physics_interpolation_mode = 2
-transform = Transform3D(0.32512, 0, 0, 0, 0.329074, 0, 0, 0, 0.342011, -0.0171998, 1.57053, 0)
-visible = false

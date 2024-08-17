@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://cejwbxfqigr77"]
+
+[ext_resource type="PackedScene" uid="uid://diccguv7k3akb" path="res://Scenes/BuildingTestBroken2.glb" id="1_mr5st"]
+[ext_resource type="Script" path="res://Scripts/broken.gd" id="2_5o0kx"]
+
+[node name="BuildingTestBroken2" instance=ExtResource("1_mr5st")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.36357, 0)
+script = ExtResource("2_5o0kx")
+
+[node name="Shell_cell" parent="." index="0"]
+layers = 0
+
+[node name="Shell_cell_001" parent="." index="1"]
+layers = 0
+
+[node name="Shell_cell_002" parent="." index="2"]
+layers = 0
+
+[node name="Shell_cell_003" parent="." index="3"]
+layers = 0
+
+[node name="Shell_cell_004" parent="." index="4"]
+layers = 0
+
+[node name="Shell_cell_005" parent="." index="5"]
+layers = 0
