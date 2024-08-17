@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://cl3yil7hlr2ta"]
+
+[ext_resource type="Script" path="res://Scripts/ai_kitty.gd" id="1_xsgra"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8x153"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_iefpn"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_owu7o"]
+
+[sub_resource type="Animation" id="Animation_rdw4a"]
+resource_name = "temp_swipe"
+length = 0.2
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AIKittyMesh/ArmCenter")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -1.35394e-09, 1.35394e-09, 0.0309747, 0.99952, 0.2, 1, 3.33602e-08, -3.33602e-08, -0.763193, 0.646171)
+
+[sub_resource type="Animation" id="Animation_ymcdx"]
+length = 0.001
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AIKittyMesh/ArmCenter")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -1.35394e-09, 1.35394e-09, 0.0309747, 0.99952)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k85au"]
+_data = {
+"RESET": SubResource("Animation_ymcdx"),
+"temp_swipe": SubResource("Animation_rdw4a")
+}
+
+[node name="AIKittyBody3D" type="CharacterBody3D"]
+script = ExtResource("1_xsgra")
+
+[node name="AIKittyCollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_8x153")
+
+[node name="AIKittyMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.91069e-15, 1, -4.37114e-08, 4.37114e-08, -4.37114e-08, -1, -1, 0, -4.37114e-08, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_iefpn")
+
+[node name="ArmCenter" type="Node3D" parent="AIKittyMesh"]
+transform = Transform3D(0.998081, -0.0619196, 2.62271e-09, 0.0619196, 0.998081, 2.79046e-09, -2.79046e-09, -2.6227e-09, 1, -0.418003, 0.46718, 3.57628e-07)
+
+[node name="KittyArmMesh" type="MeshInstance3D" parent="AIKittyMesh/ArmCenter"]
+transform = Transform3D(0.0118794, -0.6653, -1.68603e-11, 0.190999, 0.0413792, 8.19959e-09, -7.82957e-09, -1.75255e-09, 0.2, -0.53767, 0.0857154, -0.00858849)
+mesh = SubResource("CapsuleMesh_owu7o")
+skeleton = NodePath("../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_k85au")
+}

@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://sbbs4c3dcyse"]
+
+[ext_resource type="Script" path="res://Scripts/kittyMovement.gd" id="1_lckaq"]
+[ext_resource type="Script" path="res://Scripts/hitbox.gd" id="2_yuybr"]
+[ext_resource type="AnimationLibrary" uid="uid://mxb4hc325ld5" path="res://Animations/kitty.res" id="3_wkbyb"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2roum"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xudmo"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wpfe6"]
+
+[node name="KittyBody3D" type="CharacterBody3D"]
+script = ExtResource("1_lckaq")
+
+[node name="KittyCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_2roum")
+
+[node name="KittyMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.91069e-15, 1, -4.37114e-08, 4.37114e-08, -4.37114e-08, -1, -1, 0, -4.37114e-08, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_xudmo")
+
+[node name="ArmCenter" type="Node3D" parent="KittyMesh"]
+transform = Transform3D(0.998081, -0.0619196, 2.62271e-09, 0.0619196, 0.998081, 2.79046e-09, -2.79046e-09, -2.6227e-09, 1, -0.418003, 0.46718, 3.57628e-07)
+
+[node name="KittyArmMesh" type="MeshInstance3D" parent="KittyMesh/ArmCenter"]
+transform = Transform3D(0.0118794, -0.6653, -1.68603e-11, 0.190999, 0.0413792, 8.19959e-09, -7.82957e-09, -1.75255e-09, 0.2, -0.53767, 0.0857154, -0.00858849)
+mesh = SubResource("CapsuleMesh_xudmo")
+skeleton = NodePath("../..")
+
+[node name="Hitbox" type="Area3D" parent="KittyMesh/ArmCenter"]
+transform = Transform3D(0.0359854, -0.714057, 1.96969e-09, 0.488627, 0.0525875, 5.35638e-08, -4.1202e-08, -2.21414e-09, 0.636949, -0.562049, 0.0827221, -2.38419e-07)
+script = ExtResource("2_yuybr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KittyMesh/ArmCenter/Hitbox"]
+shape = SubResource("CapsuleShape3D_wpfe6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": ExtResource("3_wkbyb")
+}
