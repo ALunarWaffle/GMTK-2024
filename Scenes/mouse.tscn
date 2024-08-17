@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://bghho4kek3vva"]
+
+[ext_resource type="Script" path="res://Scripts/mouse.gd" id="1_6ubpe"]
+[ext_resource type="Script" path="res://Scripts/camera.gd" id="2_6rdtg"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w85ct"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vx6xe"]
+size = Vector3(1, 1, 2)
+
+[node name="MouseBody3D" type="CharacterBody3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+script = ExtResource("1_6ubpe")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_w85ct")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_vx6xe")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, -0.116379, -1.05381)
+mesh = SubResource("BoxMesh_vx6xe")
+
+[node name="Swivel" type="Node3D" parent="."]
+script = ExtResource("2_6rdtg")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Swivel"]
+transform = Transform3D(1, 0, 0, 0, -11.3306, 16.1718, 0, 12.4256, 14.7467, 0, 4.99523, 1.47203)
+
+[node name="Camera3D" type="Camera3D" parent="Swivel/SpringArm3D"]
+transform = Transform3D(10, 0, 0, 0, -0.593693, 0.0340866, 0, 0.0261904, 0.456164, 0.021857, -0.0300761, 1.00896)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
