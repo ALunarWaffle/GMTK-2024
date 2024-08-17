@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cejwbxfqigr77"]
+
+[ext_resource type="PackedScene" uid="uid://diccguv7k3akb" path="res://Scenes/BuildingTestBroken2.glb" id="1_mr5st"]
+
+[node name="BuildingTestBroken2" instance=ExtResource("1_mr5st")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.228, 0)
+
+[node name="Shell_cell" parent="." index="0"]
+layers = 3

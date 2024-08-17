@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cejwbxfqigr77"]
+
+[ext_resource type="PackedScene" uid="uid://diccguv7k3akb" path="res://Scenes/BuildingTestBroken2.glb" id="1_mr5st"]
+[ext_resource type="Script" path="res://Scripts/broken.gd" id="2_5o0kx"]
+
+[node name="BuildingTestBroken2" instance=ExtResource("1_mr5st")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.36357, 0)
+script = ExtResource("2_5o0kx")
