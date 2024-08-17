@@ -1,21 +1,23 @@
 extends CharacterBody3D
 
 @onready var mesh = $KittyMesh
+@onready var ani = $AnimationPlayer
 
 @export var SPEED = 7.0
 @export var JUMP_VELOCITY = 8
 @export var gravity = 20
 
 var count = 0
-var doRecord = true
+var doRecord = false
 
 # data recorded in hash map, has being frame of action ("0") 
 #"nothing" = animation, first Vector3 = position, second Vector3 = rotation
-var save_data = {"0": [Vector3(0,0,0),Vector3(0,0,0)]}
+var save_data = {"0": ["nothing",Vector3(0,0,0),Vector3(0,0,0)]}
 
 #mouse focus on game in desktop copy
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	start_recording()
 
 #mouse focus on game in browser copy (when clicking on game
 func _input(event: InputEvent) -> void:
@@ -35,8 +37,11 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
+	if Input.is_action_just_pressed("attack"):
+		ani.play("temp_swipe")
+		ani.queue("RESET")
+
 	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("left", "right", "up", "down")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
@@ -52,17 +57,25 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	
 	if Input.is_action_just_pressed("debug"):
-		doRecord = false
-		print("Saving movements...")
-		save_to_file(save_data)
+		stop_recording()
 
+	#stops character from sticking to walls while walking into them
 	move_and_slide()
+
+func start_recording():
+	doRecord = true
+
+func stop_recording():
+	doRecord = false
+	save_to_file(save_data)
 
 #Every physics frame, animation, position, and rotation are recorded into hash
 func record_actions():
 	count += 1
-	#writes to library 
-	save_data[str(count)] = [global_position,mesh.global_rotation]
+	#writes to library
+	#rotation is off due to rotating model for temp mesh, will have to adjust with real model 
+	#(likely as simple as removing +Vector3 entirely 
+	save_data[str(count)] = [ani.current_animation, global_position,mesh.rotation+Vector3(-PI/2,(3*PI)/2,0)]
 
 func save_to_file(content):
 	#writes to user://, which will store in cache for html
