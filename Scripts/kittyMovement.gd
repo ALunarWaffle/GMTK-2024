@@ -7,6 +7,7 @@ extends CharacterBody3D
 @export var gravity = 20
 
 var count = 0
+var doRecord = true
 
 # data recorded in hash map, has being frame of action ("0") 
 #"nothing" = animation, first Vector3 = position, second Vector3 = rotation
@@ -22,7 +23,10 @@ func _input(event: InputEvent) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _physics_process(delta: float) -> void:
-	record_actions()
+	#record cat movements
+	if (doRecord == true):
+		record_actions()
+
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -48,6 +52,7 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	
 	if Input.is_action_just_pressed("debug"):
+		doRecord = false
 		print("Saving movements...")
 		save_to_file(save_data)
 
@@ -57,7 +62,7 @@ func _physics_process(delta: float) -> void:
 func record_actions():
 	count += 1
 	#writes to library 
-	save_data[str(count)] = [global_position,global_rotation]
+	save_data[str(count)] = [global_position,mesh.global_rotation]
 
 func save_to_file(content):
 	#writes to user://, which will store in cache for html

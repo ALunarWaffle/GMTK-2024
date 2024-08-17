@@ -29,10 +29,10 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -0.0323181, 14.6513, 23.6798)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -0.0323181, 14.6513, 25.6798)
 
 [node name="KittyBody3D" parent="." instance=ExtResource("1_op4f4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.95249, 1.70044, 1.83944)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.9738, 1.70044, 2.62714)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(126.713, 0, 0, 0, 1, 0, 0, 0, 45.1593, 0, 0, 0)
