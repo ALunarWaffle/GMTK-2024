@@ -12,8 +12,8 @@ func _ready() -> void:
 func _on_area_entered(hitbox: Hitbox) -> void:
 	if hitbox == null:
 		return
-	print("HIT")
+	#print("HIT")
 	#owner is parent of scene object
-	print(owner.has_method("take_damage"))
+	#print(owner.has_method("take_damage"))
 	if owner.has_method("take_damage"):
 		owner.take_damage(hitbox.damage)
