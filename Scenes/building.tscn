@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=4 uid="uid://tqqalqcpwhhk"]
 
 [ext_resource type="Script" path="res://Scripts/hurtbox.gd" id="1_1lfg3"]
-[ext_resource type="Script" path="res://building.gd" id="1_5b4ps"]
+[ext_resource type="Script" path="res://Scripts/building.gd" id="1_5b4ps"]
 [ext_resource type="Script" path="res://addons/destruction/destruction.gd" id="2_th1ut"]
 [ext_resource type="PackedScene" uid="uid://cejwbxfqigr77" path="res://Scenes/broken.tscn" id="3_n5u57"]
 [ext_resource type="PackedScene" uid="uid://b0qek6atrqxe4" path="res://Scenes/building2.tscn" id="5_qksls"]

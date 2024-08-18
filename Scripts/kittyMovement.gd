@@ -58,6 +58,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("debug"):
 		stop_recording()
+		get_tree().change_scene_to_file("res://Scenes/mouse_playmat.tscn")
 
 	#stops character from sticking to walls while walking into them
 	move_and_slide()

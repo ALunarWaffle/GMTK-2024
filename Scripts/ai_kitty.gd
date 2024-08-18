@@ -7,8 +7,8 @@ var load_data = {}
 var count = 0
 var doReplay = false
 
-#func ready():
-	#load_data = load_file()
+func _ready() -> void:
+	begin_recording()
 
 func load_file():
 	var file = FileAccess.open("user://kitty_data.json", FileAccess.READ)
@@ -18,8 +18,6 @@ func load_file():
 	return output
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_released("debug"):
-		begin_recording()
 	if (doReplay == true):
 		get_recording()
 		
