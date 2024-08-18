@@ -48,11 +48,11 @@ func destroy(explosion_power := 1) -> void:
 ## Returns the list of shard meshes in the [member fragmented] scene.
 func _get_shards() -> Array[Node]:
 	if fragmented in _cached_scenes:
-		_cached_scenes[fragmented].scale = get_node("../../BuildingTest2").scale
+		_cached_scenes[fragmented].scale = get_node(".").scale
 		print(_cached_scenes[fragmented].scale)
 	if not fragmented in _cached_scenes:
 		_cached_scenes[fragmented] = fragmented.instantiate()
-		_cached_scenes[fragmented].scale = get_node("../../BuildingTest2").scale
+		_cached_scenes[fragmented].scale = get_node(".").scale
 		print(_cached_scenes[fragmented].scale)
 		for shard_mesh in _cached_scenes[fragmented].get_children():
 			_cached_shapes[shard_mesh] = shard_mesh.mesh.create_convex_shape()
@@ -86,11 +86,11 @@ func _add_shard(original: MeshInstance3D, explosion_power: float) -> void:
 	body.collision_layer = 4
 	body.collision_mask = 4
 	#print(get_parent().get_child(0))
-	var build_scale = get_node("../../BuildingTest2").scale
-	var object_scale = get_node("../../../Building").scale
-	var new_scale = Vector3(build_scale[0]*object_scale[0],build_scale[1]*object_scale[1],build_scale[2]*object_scale[2])
-	mesh.scale = new_scale
-	shape.scale = new_scale
+	#var build_scale = get_node("../RelativeSize").scale
+	#var object_scale = get_parent().scale
+	#var new_scale = Vector3(build_scale[0]*object_scale[0],build_scale[1]*object_scale[1],build_scale[2]*object_scale[2])
+	mesh.scale = get_parent().scale
+	shape.scale = get_parent().scale
 	shape.shape = _cached_shapes[original]
 	mesh.mesh = original.mesh
 	var tween := get_tree().create_tween()

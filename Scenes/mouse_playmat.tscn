@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://jp7bjh830n08"]
+[gd_scene load_steps=10 format=3 uid="uid://jp7bjh830n08"]
 
 [ext_resource type="PackedScene" uid="uid://cl3yil7hlr2ta" path="res://Scenes/ai_kitty.tscn" id="1_rbdqc"]
 [ext_resource type="PackedScene" uid="uid://bghho4kek3vva" path="res://Scenes/mouse.tscn" id="2_nwv8f"]
 [ext_resource type="PackedScene" uid="uid://tqqalqcpwhhk" path="res://Scenes/building.tscn" id="3_2l458"]
+[ext_resource type="PackedScene" uid="uid://40bfug0lns8" path="res://Scenes/exit.tscn" id="3_02twb"]
+[ext_resource type="PackedScene" uid="uid://bpa42ftyw1ye2" path="res://Scenes/VillageHouse.tscn" id="5_qbun0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hqfd7"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -21,6 +23,9 @@ glow_enabled = true
 albedo_color = Color(0.126697, 0.364289, 2.40654e-07, 1)
 
 [node name="Playmat" type="Node3D"]
+
+[node name="Exit" parent="." instance=ExtResource("3_02twb")]
+transform = Transform3D(0.0156648, 0, -0.249541, 0, 0.250032, 0, 0.249541, 0, 0.0156648, 18.2038, 0.0530675, 10.3976)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_i15ps")
@@ -71,3 +76,6 @@ minDamage = 5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5379, 0.236192, 4.98023)
 health = 10
 minDamage = 5
+
+[node name="VillageHouse" parent="." instance=ExtResource("5_qbun0")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 14.8984, -0.229632, 0)

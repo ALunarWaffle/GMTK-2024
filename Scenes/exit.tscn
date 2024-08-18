@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://40bfug0lns8"]
+
+[ext_resource type="PackedScene" uid="uid://dv6w2cn3vr0nj" path="res://Scenes/helipad_mesh.tscn" id="1_2ppul"]
+[ext_resource type="Script" path="res://Scripts/exit.gd" id="1_e5uaf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u8k3b"]
+size = Vector3(5.12931, 0.879427, 5.11035)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_40uvd"]
+points = PackedVector3Array(0, 0, 0, 0, 0, 2.225, 3, 0, 0, 3, 0, 2.225, 0, 1.15, 0, 3, 1.15, 0)
+
+[node name="Exit" type="AnimatableBody3D"]
+script = ExtResource("1_e5uaf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000153244, 0.0887638, 0.00131378)
+shape = SubResource("BoxShape3D_u8k3b")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+physics_interpolation_mode = 2
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0929812, 0.826226, 0.0919636)
+shape = SubResource("BoxShape3D_u8k3b")
+
+[node name="Helipad" parent="." instance=ExtResource("1_2ppul")]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.01865, -0.499456, -1.5046)
+shape = SubResource("ConvexPolygonShape3D_40uvd")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
