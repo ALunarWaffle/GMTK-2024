@@ -58,7 +58,7 @@ mesh = SubResource("ArrayMesh_ntgit")
 skeleton = NodePath("")
 script = ExtResource("2_th1ut")
 fragmented = ExtResource("3_n5u57")
-shard_container = NodePath("../..")
+shard_container = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0200788, 5.01502, 0.0738058)

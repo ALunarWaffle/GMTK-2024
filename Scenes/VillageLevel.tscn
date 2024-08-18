@@ -1,0 +1,298 @@
+[gd_scene load_steps=11 format=3 uid="uid://r4dn65pirdkx"]
+
+[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="1_20qaq"]
+[ext_resource type="Shader" path="res://VillageLevel.gdshader" id="1_xukam"]
+[ext_resource type="Resource" path="res://Terrain/data.hterrain" id="2_64car"]
+[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="3_mll6q"]
+[ext_resource type="PackedScene" uid="uid://usohdpuvqtrk" path="res://Scenes/kitty.tscn" id="4_ijtic"]
+[ext_resource type="PackedScene" uid="uid://bpa42ftyw1ye2" path="res://Scenes/VillageHouse.tscn" id="5_lde1x"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_beowo"]
+shader = ExtResource("1_xukam")
+shader_parameter/skyColor = Color(0.0240961, 0.08608, 0.0769842, 1)
+
+[sub_resource type="Sky" id="Sky_l78vr"]
+sky_material = SubResource("ShaderMaterial_beowo")
+
+[sub_resource type="Environment" id="Environment_0bb0y"]
+background_mode = 1
+background_color = Color(0.046266, 0.109297, 0.139038, 1)
+sky = SubResource("Sky_l78vr")
+reflected_light_source = 2
+
+[sub_resource type="Resource" id="Resource_kx2xw"]
+script = ExtResource("3_mll6q")
+mode = 0
+textures = [[], []]
+
+[node name="VillageLevel" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0bb0y")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.492086, 0.336175, -0.803018, 0.353762, 0.765612, 0.5373, 0.795426, -0.548475, 0.257821, 0, 0, 0)
+light_color = Color(0.378719, 0.54783, 0.567899, 1)
+light_energy = 0.933
+light_angular_distance = 39.05
+shadow_enabled = true
+shadow_blur = 1.808
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.999973, -0.00524502, 0.00524502, 0, 0.707107, 0.707107, -0.00741758, -0.707087, 0.707087, 0, 17.5867, 33.4439)
+
+[node name="KittyBody3D" parent="." instance=ExtResource("4_ijtic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3935, 2.67134, 2.4937)
+
+[node name="HTerrain" type="Node3D" parent="."]
+script = ExtResource("1_20qaq")
+ambient_wind = 0.018
+map_scale = Vector3(0.1, 0.1, 0.1)
+centered = true
+_terrain_data = ExtResource("2_64car")
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+shader_type = "LowPoly"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource("Resource_kx2xw")
+render_layers = 1
+cast_shadow = 1
+
+[node name="Buildings" type="Node3D" parent="."]
+
+[node name="VillageRow1" type="Node3D" parent="Buildings"]
+
+[node name="VillageHouse" parent="Buildings/VillageRow1" instance=ExtResource("5_lde1x")]
+transform = Transform3D(-0.00388765, -0.0268214, 0.147531, 0.00735745, 0.147369, 0.0269857, -0.149769, 0.00793577, -0.00250389, 15.627, 2.16472, -15.3538)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Buildings/VillageRow1/VillageHouse"]
+transform = Transform3D(-0.0259177, 0.0490497, -0.99846, -0.178809, 0.98246, 0.0529052, 0.983542, 0.179905, -0.0166926, -0.219627, 8.80429, 0.358444)
+light_color = Color(0.704126, 0.473704, 0.192073, 1)
+light_energy = 0.43
+light_volumetric_fog_energy = 0.0
+light_specular = 6.386
+light_bake_mode = 1
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 6.997
+omni_attenuation = 0.721
+
+[node name="VillageHouse2" parent="Buildings/VillageRow1" instance=ExtResource("5_lde1x")]
+transform = Transform3D(-6.55671e-09, -2.44342e-17, 0.15, 0.0256062, 0.147798, 1.11928e-09, -0.147798, 0.0256062, -6.46047e-09, 15.6387, 1.02517, -8.13696)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Buildings/VillageRow1/VillageHouse2"]
+transform = Transform3D(-0.0459931, 0.242739, -0.969001, -0.0808266, 0.965943, 0.245809, 0.995666, 0.0896265, -0.024807, -0.364983, 9.65558, -4.71649)
+light_color = Color(0.704126, 0.473704, 0.192073, 1)
+light_energy = 0.43
+light_volumetric_fog_energy = 0.0
+light_specular = 6.386
+light_bake_mode = 1
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 6.997
+omni_attenuation = 0.721
+
+[node name="VillageHouse3" parent="Buildings/VillageRow1" instance=ExtResource("5_lde1x")]
+transform = Transform3D(-8.74228e-09, 0, 0.2, 0.00312401, 0.199976, 1.36555e-10, -0.199976, 0.00312401, -8.74121e-09, 16.0543, -0.0165163, -0.719228)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Buildings/VillageRow1/VillageHouse3"]
+transform = Transform3D(-4.3714e-08, 0.0156201, -0.999878, -1.69719e-10, 0.999878, 0.0156201, 1, 8.52515e-10, -4.37061e-08, -0.341398, 8.07569, -3.66757)
+light_color = Color(0.704126, 0.473704, 0.192073, 1)
+light_energy = 0.43
+light_volumetric_fog_energy = 0.0
+light_specular = 6.386
+light_bake_mode = 1
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 6.997
+omni_attenuation = 0.721
+
+[node name="VillageHouse4" parent="Buildings/VillageRow1" instance=ExtResource("5_lde1x")]
+transform = Transform3D(0.000503921, -0.0136938, 0.149373, -0.00385235, 0.149323, 0.0137023, -0.14995, -0.00388228, 0.000149957, 15.6522, 0.592196, 8.35105)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Buildings/VillageRow1/VillageHouse4"]
+transform = Transform3D(0.012928, -0.143817, -0.98952, -0.269455, 0.952493, -0.141955, 0.962926, 0.268466, -0.0264382, 0.264683, 8.72383, -3.63673)
+light_color = Color(0.704126, 0.473704, 0.192073, 1)
+light_energy = 0.43
+light_volumetric_fog_energy = 0.0
+light_specular = 6.386
+light_bake_mode = 1
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 6.997
+omni_attenuation = 0.721
+
+[node name="VillageHouse5" parent="Buildings/VillageRow1" instance=ExtResource("5_lde1x")]
+transform = Transform3D(0.00221955, -0.0240998, 0.148035, -0.0135763, 0.147411, 0.0242018, -0.149368, -0.0137565, -6.68779e-09, 15.6522, 1.00236, 16.3297)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Buildings/VillageRow1/VillageHouse5"]
+transform = Transform3D(0.0077479, -0.052762, -0.998577, -0.336241, 0.940323, -0.0522929, 0.941744, 0.336168, -0.0104552, -0.0858841, 9.0172, -1.66007)
+light_color = Color(0.704126, 0.473704, 0.192073, 1)
+light_energy = 0.43
+light_volumetric_fog_energy = 0.0
+light_specular = 6.386
+light_bake_mode = 1
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 6.997
+omni_attenuation = 0.721
+
+[node name="VillageRow2" type="Node3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.764, -1.13904, 0)
+
+[node name="VillageHouse" parent="Buildings/VillageRow2" instance=ExtResource("5_lde1x")]
+transform = Transform3D(-0.000771064, 0.00629544, 0.149866, -0.00301511, 0.149837, -0.00630974, -0.149968, -0.00304485, -0.000643683, 15.627, 1.11432, -15.3538)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Buildings/VillageRow2/VillageHouse"]
+transform = Transform3D(-0.0259177, 0.0490497, -0.99846, -0.178809, 0.98246, 0.0529051, 0.983542, 0.179905, -0.0166926, 0.276436, 9.06622, -2.95484)
+light_color = Color(0.704126, 0.473704, 0.192073, 1)
+light_energy = 0.43
+light_volumetric_fog_energy = 0.0
+light_specular = 6.386
+light_bake_mode = 1
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 6.997
+omni_attenuation = 0.721
+
+[node name="VillageHouse2" parent="Buildings/VillageRow2" instance=ExtResource("5_lde1x")]
+transform = Transform3D(0.00161903, 0.0137549, 0.149359, -0.0032741, 0.149336, -0.0137173, -0.149956, -0.00311206, 0.00191209, 15.6387, 1.15649, -8.13696)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Buildings/VillageRow2/VillageHouse2"]
+transform = Transform3D(-0.0259177, 0.0490497, -0.99846, -0.178809, 0.98246, 0.0529051, 0.983542, 0.179905, -0.0166926, 0.276436, 9.06622, -2.95484)
+light_color = Color(0.704126, 0.473704, 0.192073, 1)
+light_energy = 0.43
+light_volumetric_fog_energy = 0.0
+light_specular = 6.386
+light_bake_mode = 1
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 6.997
+omni_attenuation = 0.721
+
+[node name="VillageHouse3" parent="Buildings/VillageRow2" instance=ExtResource("5_lde1x")]
+transform = Transform3D(0.199814, 0.00544332, -0.0117005, -0.00568326, 0.19979, -0.0125835, 0.00648326, 0.00737389, 0.349578, 16.0543, 0.902735, 0.72832)
+health = 20
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Buildings/VillageRow2/VillageHouse3"]
+transform = Transform3D(-0.0259177, 0.0490497, -0.99846, -0.178809, 0.98246, 0.0529052, 0.983542, 0.179905, -0.0166926, 0.0495015, 9.17118, -1.18589)
+light_color = Color(0.704126, 0.473704, 0.192073, 1)
+light_energy = 0.43
+light_volumetric_fog_energy = 0.0
+light_specular = 6.386
+light_bake_mode = 1
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 6.997
+omni_attenuation = 0.721
+
+[node name="VillageHouse4" parent="Buildings/VillageRow2" instance=ExtResource("5_lde1x")]
+transform = Transform3D(-1.51514e-05, 0.00637412, 0.149865, 0.000208964, 0.149864, -0.00637409, -0.15, 0.000208132, -2.40174e-05, 15.6522, 1.05987, 8.35105)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Buildings/VillageRow2/VillageHouse4"]
+transform = Transform3D(-0.0259177, 0.0490497, -0.99846, -0.178809, 0.98246, 0.0529051, 0.983542, 0.179905, -0.0166926, 0.276436, 9.06622, -2.95484)
+light_color = Color(0.704126, 0.473704, 0.192073, 1)
+light_energy = 0.43
+light_volumetric_fog_energy = 0.0
+light_specular = 6.386
+light_bake_mode = 1
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 6.997
+omni_attenuation = 0.721
+
+[node name="VillageHouse5" parent="Buildings/VillageRow2" instance=ExtResource("5_lde1x")]
+transform = Transform3D(0.00457105, 0.0168285, 0.148983, -0.0020882, 0.149045, -0.0167714, -0.149916, -0.00156296, 0.00477621, 15.6522, 1.15986, 16.3297)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Buildings/VillageRow2/VillageHouse5"]
+transform = Transform3D(-0.0259177, 0.0490497, -0.99846, -0.178809, 0.98246, 0.0529051, 0.983542, 0.179905, -0.0166926, 0.276436, 9.06622, -2.95484)
+light_color = Color(0.704126, 0.473704, 0.192073, 1)
+light_energy = 0.43
+light_volumetric_fog_energy = 0.0
+light_specular = 6.386
+light_bake_mode = 1
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 6.997
+omni_attenuation = 0.721
+
+[node name="VillageRow3" type="Node3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.955, 1.16538, 0)
+
+[node name="VillageHouse" parent="Buildings/VillageRow3" instance=ExtResource("5_lde1x")]
+transform = Transform3D(-0.00243828, 0.00519615, 0.14989, -0.00238459, 0.14989, -0.00523493, -0.149961, -0.00246794, -0.00235389, 15.627, 0.0915965, -15.3538)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Buildings/VillageRow3/VillageHouse"]
+transform = Transform3D(-0.0259177, 0.0490497, -0.99846, -0.178809, 0.98246, 0.0529051, 0.983542, 0.179905, -0.0166926, 0.276436, 9.06622, -2.95484)
+light_color = Color(0.704126, 0.473704, 0.192073, 1)
+light_energy = 0.43
+light_volumetric_fog_energy = 0.0
+light_specular = 6.386
+light_bake_mode = 1
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 6.997
+omni_attenuation = 0.721
+
+[node name="VillageHouse2" parent="Buildings/VillageRow3" instance=ExtResource("5_lde1x")]
+transform = Transform3D(0.00244618, -0.00243169, 0.14996, -0.0028292, 0.149953, 0.00247771, -0.149953, -0.00286886, 0.00239954, 15.6387, 0.280621, -8.13696)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Buildings/VillageRow3/VillageHouse2"]
+transform = Transform3D(-0.0259177, 0.0490497, -0.99846, -0.178809, 0.98246, 0.0529051, 0.983542, 0.179905, -0.0166926, 0.276436, 9.06622, -2.95484)
+light_color = Color(0.704126, 0.473704, 0.192073, 1)
+light_energy = 0.43
+light_volumetric_fog_energy = 0.0
+light_specular = 6.386
+light_bake_mode = 1
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 6.997
+omni_attenuation = 0.721
+
+[node name="VillageHouse3" parent="Buildings/VillageRow3" instance=ExtResource("5_lde1x")]
+transform = Transform3D(-7.94177e-05, -0.00287162, 0.199979, -0.00124673, 0.199975, 0.00287107, -0.199996, -0.00124546, -9.73086e-05, 16.0543, 0.377484, -0.719228)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Buildings/VillageRow3/VillageHouse3"]
+transform = Transform3D(-0.0259177, 0.0490497, -0.99846, -0.178809, 0.98246, 0.0529051, 0.983542, 0.179905, -0.0166926, 0.276436, 9.06622, -2.95484)
+light_color = Color(0.704126, 0.473704, 0.192073, 1)
+light_energy = 0.43
+light_volumetric_fog_energy = 0.0
+light_specular = 6.386
+light_bake_mode = 1
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 6.997
+omni_attenuation = 0.721
+
+[node name="VillageHouse4" parent="Buildings/VillageRow3" instance=ExtResource("5_lde1x")]
+transform = Transform3D(0.00052747, -0.0321276, 0.146518, 0.0045559, 0.146455, 0.0320973, -0.14993, 0.00433727, 0.0014908, 15.6522, 0.462944, 8.35105)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Buildings/VillageRow3/VillageHouse4"]
+transform = Transform3D(-0.0259177, 0.0490497, -0.99846, -0.178809, 0.98246, 0.0529051, 0.983542, 0.179905, -0.0166926, 0.276436, 9.06622, -2.95484)
+light_color = Color(0.704126, 0.473704, 0.192073, 1)
+light_energy = 0.43
+light_volumetric_fog_energy = 0.0
+light_specular = 6.386
+light_bake_mode = 1
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 6.997
+omni_attenuation = 0.721
+
+[node name="VillageHouse5" parent="Buildings/VillageRow3" instance=ExtResource("5_lde1x")]
+transform = Transform3D(0.00221955, -0.0240998, 0.148035, -0.0135763, 0.147411, 0.0242018, -0.149368, -0.0137565, -6.68779e-09, 15.6522, 1.00236, 16.3297)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Buildings/VillageRow3/VillageHouse5"]
+transform = Transform3D(-0.0259177, 0.0490497, -0.99846, -0.178809, 0.98246, 0.0529051, 0.983542, 0.179905, -0.0166926, 0.276436, 9.06622, -2.95484)
+light_color = Color(0.704126, 0.473704, 0.192073, 1)
+light_energy = 0.43
+light_volumetric_fog_energy = 0.0
+light_specular = 6.386
+light_bake_mode = 1
+shadow_enabled = true
+shadow_blur = 10.0
+omni_range = 6.997
+omni_attenuation = 0.721
