@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://vhv7lmaxi3ts"]
+[gd_scene load_steps=8 format=3 uid="uid://vhv7lmaxi3ts"]
 
 [ext_resource type="PackedScene" uid="uid://cl3yil7hlr2ta" path="res://Scenes/ai_kitty.tscn" id="1_ek8xb"]
 [ext_resource type="PackedScene" uid="uid://usohdpuvqtrk" path="res://Scenes/kitty.tscn" id="2_otmkr"]
+[ext_resource type="PackedScene" uid="uid://tqqalqcpwhhk" path="res://Scenes/building.tscn" id="3_petix"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hqfd7"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -34,6 +35,7 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(126.713, 0, 0, 0, 1, 0, 0, 0, 45.1593, 0, 0, 0)
 use_collision = true
+collision_layer = 5
 material = SubResource("StandardMaterial3D_mkgg0")
 
 [node name="AIKittyBody3D" parent="." instance=ExtResource("1_ek8xb")]
@@ -41,3 +43,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.35604, 1.5, 2.06016)
 
 [node name="KittyBody3D" parent="." instance=ExtResource("2_otmkr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.4278, 0.5, 2.4937)
+
+[node name="Building" parent="." instance=ExtResource("3_petix")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9835, 0.5, -2.97517)
+health = 10
+minDamage = 5

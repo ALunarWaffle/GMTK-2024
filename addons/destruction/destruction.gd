@@ -27,9 +27,9 @@ extends Node
 
 @export_group("Collision")
 ## The [member RigidBody3D.collision_layer] set on the created shards.
-@export_flags_3d_physics var collision_layer = 1
+@export_flags_3d_physics var collision_layer = 4
 ## The [member RigidBody3D.collision_mask] set on the created shards.
-@export_flags_3d_physics var collision_mask = 1
+@export_flags_3d_physics var collision_mask = 4
 
 ## Cached shard meshes (instantiated from [member fragmented]).
 static var _cached_scenes := {}

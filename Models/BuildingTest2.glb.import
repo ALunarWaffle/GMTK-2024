@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bvjoau2ca10s2"
-path="res://.godot/imported/BuildingTest2.glb-d7ca1df7b95a2b50db1ef94bd49d9ea2.scn"
+path="res://.godot/imported/BuildingTest2.glb-e77e75216ffd625be8b4279eb3bb6590.scn"
 
 [deps]
 
-source_file="res://Scenes/BuildingTest2.glb"
-dest_files=["res://.godot/imported/BuildingTest2.glb-d7ca1df7b95a2b50db1ef94bd49d9ea2.scn"]
+source_file="res://Models/BuildingTest2.glb"
+dest_files=["res://.godot/imported/BuildingTest2.glb-e77e75216ffd625be8b4279eb3bb6590.scn"]
 
 [params]
 
