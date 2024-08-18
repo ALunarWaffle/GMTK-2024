@@ -1,21 +1,17 @@
-[gd_scene load_steps=11 format=4 uid="uid://tqqalqcpwhhk"]
+[gd_scene load_steps=10 format=4 uid="uid://tqqalqcpwhhk"]
 
 [ext_resource type="Script" path="res://Scripts/hurtbox.gd" id="1_1lfg3"]
 [ext_resource type="Script" path="res://Scripts/building.gd" id="1_5b4ps"]
 [ext_resource type="Script" path="res://addons/destruction/destruction.gd" id="2_th1ut"]
 [ext_resource type="PackedScene" uid="uid://cejwbxfqigr77" path="res://Scenes/broken.tscn" id="3_n5u57"]
-[ext_resource type="PackedScene" uid="uid://b0qek6atrqxe4" path="res://Scenes/building2.tscn" id="5_qksls"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_g1kfs"]
-size = Vector3(1.99997, 5.32627, 1.98484)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1dhja"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cch0t"]
 resource_name = "Material"
 cull_mode = 2
 albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
 roughness = 0.5
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_wlks0"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_1821i"]
 _surfaces = [{
 "aabb": AABB(-1, -1.00089, -1, 2.65671, 2.00089, 2),
 "format": 34896613377,
@@ -29,7 +25,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_gqu6y"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_ntgit"]
 resource_name = "BuildingTest2_Cube"
 _surfaces = [{
 "aabb": AABB(-1, -1.00089, -1, 2.65671, 2.00089, 2),
@@ -37,7 +33,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 192,
 "index_data": PackedByteArray("AQAxACsAAQATADEAHgAwABIAHgAzADAANQAsADIANQAvACwAPQAfAEMAHwAuADQALgBGAAoALgBAAEYAPQAuAB8APQBAAC4AUQA4AE4AOwBUAFcAVAALAEkACwAUAAIAFABLACAAFABRAEsAOwALAFQAFAA4AFEAOwAUAAsAOAAUADsAIABLAEQACwBHAEkALQAAACoALQAJAAAACAApAB0ACAARACkAWwA5AFUAOQAbACcAGwBbAFgAWwAbADkAYQAGAF4ABgA2AA8ANgBhAEwAYQA2AAYAHABfAAcAHABZAF8AEAA6ACgAEAA3ADoAYABdAGMAYABaAF0ADgA+AAUADgBBAD4ASAAkAFIAJAAMACEADABFAD8ARQAkAEgAJABFAAwAIwAaACYAIwAXABoAQgADADwAAwAYABUAGABKAE8AQgAYAAMAQgBKABgADQAWACIADQAEABYAVgBiAFwATQAZAFAAVgBNAGIAJQBWAFMATQAlABkAVgAlAE0A"),
-"material": SubResource("StandardMaterial3D_1dhja"),
+"material": SubResource("StandardMaterial3D_cch0t"),
 "name": "Material",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -45,27 +41,28 @@ _surfaces = [{
 "vertex_data": PackedByteArray("t8D//wAA//+3wP//AAD//7fA//8AAFTVwb8AAK2V/j/BvwAArZX/v8G/AACtlVTVcq4dD1SVAAByrh0PVJX/P3KuHQ9Ulaoqt8AdAAAA//+3wB0AAAD/v7fAHQAAAFTVwb8AAFFqAADBvwAAUWr/v8G/AABRalTVcq4ZL1SVAAByrhkvVJUAAHKuGS9Ulaoqt8D//////7+3wP///////7fA/////1TV//8AAK2V/7///wAArZX/v///AACtlVTV//8JAK2V/7///wkArZWf+v//CQCtlVTVcq4dD6pq/z9yrh0Pqmr/P3KuHQ+qaqoqt8AdAP///7+3wB0A////v7fAHQD//1TV//8AAFFq/////wAAUWr/v///AABRalTV//8JAFFqAAD//wkAUWqf+v//CQBRalTVcq4ZL6pq/z9yrhkvqmoAAHKuGS+qaqoqAAD//wAA//8AAP//AAD//wAA//8AAFTVAAAdAAAA//8AAB0AAAD/vwAAHQAAAFTVAAD//////78AAP///////wAA/////1TVAAAdAP///78AAB0A////vwAAHQD//1TVt8AZL1SVAAC3wBkvVJUAALfAGS9UlVTVt8AZL6pq/z+3wBkvqmoAALfAGS+qalTVwb8dAK2V/7/Bvx0ArZX/v8G/HQCtlVTVwb8dAFFq///Bvx0AUWr/v8G/HQBRalTVt8AdAK2V/7+3wB0ArZX/v7fAHQCtlVTVt8AdAFFqAAC3wB0AUWr/v7fAHQBRalTVt8AQD1Fq//+3wBAPUWpU1bfAEA+tlf+/t8AQD62VVNW3wOgPVJUAALfA6A9UlZ/6t8DoD1SVVNW3wOgPrZX/v7fA6A+tlZ/6t8DoD62VVNW3wOgPUWr//7fA6A9Rap/6t8DoD1FqVNW3wOgPqmr/P7fA6A+qap/6t8DoD6pqVNXBvx0Pqmr/P8G/HQ+qav8/wb8dD6pqVNXBvyUQqmr/P8G/JRCqap/6wb8lEKpqVNXBvx0PVJUAAMG/HQ9Ulf8/wb8dD1SVVNXBvyUQVJUAAMG/JRBUlZ/6wb8lEFSVVNX/v/+//3//v6oqqir/f/9/AAD/f1TVVNX/v/+/////f6oqqir/v/+/AAD/f6oqqir/vwBAAAD/f1TVVNX/v/+//3//P6oqqir//////3//v6oqqir/////AAD/f6oqqir/////Iz25Baoqqir/////////f6oqqir/////AAD/f6oqqir/v/+/AAD/f6oqqir/vwBAIz25Baoqqir//////3//P6oqqir/v/+//3//v1TVVNX/v/+/AAD/f1TVVNX//////3//v1TVVNX/////AAD/f1TVVNX/v/+//3//P6oqqir//////3//P6oqqir/////AAAAgFTVVNX/v/+/AAD/f1TVVNX/////AAABgKoqqir/vwBAAAD/f6oqqir/v/+/qiqqKv////+qKqoq/7//vyM9uQWqKqoq/////yM9uQWqKqoq/7//vyM9uQWqKqoq/////yM9uQWqKqoq/////////39U1VTV/////yM9uQVU1VTV/7//v////39U1VTV/7//vyM9uQVU1VTV")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_wlks0")
+shadow_mesh = SubResource("ArrayMesh_1821i")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g1kfs"]
+size = Vector3(6.11108, 15.8149, 6.48483)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0xf7f"]
-size = Vector3(1.32428, 3.57379, 1.32446)
+size = Vector3(3.52506, 7.18143, 4.28595)
 
 [node name="Building" type="AnimatableBody3D"]
 script = ExtResource("1_5b4ps")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00408205, 2.72045, 0.00408205)
-shape = SubResource("BoxShape3D_g1kfs")
-
-[node name="Shell" type="MeshInstance3D" parent="CollisionShape3D" node_paths=PackedStringArray("shard_container")]
-transform = Transform3D(1, 0, 0, 0, 2.667, 0, 0, 0, 1, -0.00408205, 0.00705814, -0.00408205)
-mesh = SubResource("ArrayMesh_gqu6y")
+[node name="Mesh" type="MeshInstance3D" parent="." node_paths=PackedStringArray("shard_container")]
+transform = Transform3D(3, 0, 0, 0, 8, 0, 0, 0, 3, 0, 4.98988, 0)
+mesh = SubResource("ArrayMesh_ntgit")
 skeleton = NodePath("")
 script = ExtResource("2_th1ut")
 fragmented = ExtResource("3_n5u57")
 shard_container = NodePath("../..")
-collision_layer = 1
-collision_mask = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0200788, 5.01502, 0.0738058)
+shape = SubResource("BoxShape3D_g1kfs")
 
 [node name="Hurtbox" type="Area3D" parent="."]
 collision_layer = 0
@@ -73,10 +70,5 @@ collision_mask = 2
 script = ExtResource("1_1lfg3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.00132751, 2.74318, -0.0140991)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.0483096, 6.32947, -0.0561476)
 shape = SubResource("BoxShape3D_0xf7f")
-
-[node name="BuildingTest2" parent="." instance=ExtResource("5_qksls")]
-physics_interpolation_mode = 2
-transform = Transform3D(0.32512, 0, 0, 0, 0.329074, 0, 0, 0, 0.342011, -0.0171998, 1.57053, 0)
-visible = false
