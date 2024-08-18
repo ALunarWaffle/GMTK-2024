@@ -49,11 +49,11 @@ func destroy(explosion_power := 1) -> void:
 func _get_shards() -> Array[Node]:
 	if fragmented in _cached_scenes:
 		_cached_scenes[fragmented].scale = get_node("../../BuildingTest2").scale
-		print(_cached_scenes[fragmented].scale)
+		#print(_cached_scenes[fragmented].scale)
 	if not fragmented in _cached_scenes:
 		_cached_scenes[fragmented] = fragmented.instantiate()
 		_cached_scenes[fragmented].scale = get_node("../../BuildingTest2").scale
-		print(_cached_scenes[fragmented].scale)
+		#print(_cached_scenes[fragmented].scale)
 		for shard_mesh in _cached_scenes[fragmented].get_children():
 			_cached_shapes[shard_mesh] = shard_mesh.mesh.create_convex_shape()
 	return (_cached_scenes[fragmented].get_children() as Array)\
@@ -81,6 +81,7 @@ func _add_shard(original: MeshInstance3D, explosion_power: float) -> void:
 	body.add_child(mesh)
 	body.add_child(shape)
 	shard_container.add_child(body, true)
+	#body.global_position = get_parent().global_transform.origin
 	body.global_position = get_parent().global_transform.origin + original.position
 	body.global_rotation = get_parent().global_rotation
 	body.collision_layer = 4

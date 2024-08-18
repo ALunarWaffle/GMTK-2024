@@ -28,9 +28,10 @@ mesh = SubResource("BoxMesh_vx6xe")
 script = ExtResource("2_6rdtg")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="Swivel"]
-transform = Transform3D(1, 0, 0, 0, -11.3306, 16.1718, 0, 12.4256, 14.7467, 0, 4.99523, 1.47203)
+transform = Transform3D(1, 0, 0, 0, -7.39933, 2.57166, 0, 2.08795, 9.11352, 0, 4.99523, 1.47203)
 
 [node name="Camera3D" type="Camera3D" parent="Swivel/SpringArm3D"]
-transform = Transform3D(10, 0, 0, 0, -0.593693, 0.0340866, 0, 0.0261904, 0.456164, 0.021857, -0.0300761, 1.00896)
+transform = Transform3D(10, 0, 0, 0, -1.29063, -0.0883423, 0, -0.160704, 1.05326, 0.021857, -0.0300761, 1.00896)
+fov = 60.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
