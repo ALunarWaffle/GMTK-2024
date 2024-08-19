@@ -101,7 +101,9 @@ mesh = SubResource("ArrayMesh_vqyu7")
 skeleton = NodePath("")
 script = ExtResource("1_q5npi")
 fragmented = ExtResource("2_42qpx")
-shard_container = NodePath("")
+shard_container = NodePath("../..")
+shrink_delay = 1
+animation_length = 2.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.108074, 3.06595, -1.20621)
