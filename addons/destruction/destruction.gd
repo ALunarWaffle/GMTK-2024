@@ -49,7 +49,7 @@ func destroy(explosion_power := 1) -> void:
 func _get_shards() -> Array[Node]:
 	if fragmented in _cached_scenes:
 		_cached_scenes[fragmented].scale = get_node(".").scale
-		print(_cached_scenes[fragmented].scale)
+		#print(_cached_scenes[fragmented].scale)
 	if not fragmented in _cached_scenes:
 		_cached_scenes[fragmented] = fragmented.instantiate()
 		_cached_scenes[fragmented].scale = get_node(".").scale
@@ -86,7 +86,7 @@ func _add_shard(original: MeshInstance3D, explosion_power: float) -> void:
 	body.global_rotation = get_parent().global_rotation
 	body.collision_layer = 4
 	body.collision_mask = 4
-	print(get_parent().scale)
+	#print(get_parent().scale)
 	#var build_scale = get_node("../RelativeSize").scale
 	#var object_scale = get_parent().scale
 	#var new_scale = Vector3(build_scale[0]*object_scale[0],build_scale[1]*object_scale[1],build_scale[2]*object_scale[2])

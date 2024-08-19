@@ -52,10 +52,12 @@ size = Vector3(1.1457, 1.92858, 5.22024)
 size = Vector3(4.92198, 3.10663, 4.73628)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w5fdr"]
-size = Vector3(2.44434, 2.51029, 2.62864)
+size = Vector3(2.58325, 2.51029, 2.91198)
 
 [node name="Suburb1" type="AnimatableBody3D"]
 script = ExtResource("1_hyb3f")
+health = 10
+minDamage = 5
 
 [node name="Mesh" type="MeshInstance3D" parent="." node_paths=PackedStringArray("shard_container")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.40473, 0.01, 0)
@@ -83,7 +85,7 @@ collision_mask = 2
 script = ExtResource("4_65kwh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.148078, 1.67968, -1.56227)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.0770343, 1.67968, -1.64051)
 shape = SubResource("BoxShape3D_w5fdr")
 
 [connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_area_entered"]
