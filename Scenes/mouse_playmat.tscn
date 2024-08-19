@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://jp7bjh830n08"]
+[gd_scene load_steps=14 format=3 uid="uid://jp7bjh830n08"]
 
 [ext_resource type="PackedScene" uid="uid://cl3yil7hlr2ta" path="res://Scenes/ai_kitty.tscn" id="1_rbdqc"]
 [ext_resource type="PackedScene" uid="uid://bghho4kek3vva" path="res://Scenes/mouse.tscn" id="2_nwv8f"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ecntucxd7j52" path="res://Scenes/Buildings/Suburbs/suburb1.tscn" id="6_scqpd"]
 [ext_resource type="PackedScene" uid="uid://cerd8gw65gs6w" path="res://Scenes/Buildings/Suburbs/suburb2.tscn" id="7_r8rr7"]
 [ext_resource type="PackedScene" uid="uid://cpnnnasxgperw" path="res://Scenes/Buildings/Suburbs/suburb3.tscn" id="8_1ndwo"]
+[ext_resource type="PackedScene" uid="uid://dag872qi85jwn" path="res://Scenes/Buildings/Suburbs/suburb4.tscn" id="9_meln8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hqfd7"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -93,3 +94,6 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 13.1607, 0.262308, -4.0
 
 [node name="Suburb3" parent="Buildings/Subcategory" instance=ExtResource("8_1ndwo")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 9.90539, -0.230196, 0)
+
+[node name="Suburb4" parent="Buildings/Subcategory" instance=ExtResource("9_meln8")]
+transform = Transform3D(0.00694228, 0, -0.29992, 0, 0.3, 0, 0.29992, 0, 0.00694228, 16.1577, -0.0831877, -4.98367)
