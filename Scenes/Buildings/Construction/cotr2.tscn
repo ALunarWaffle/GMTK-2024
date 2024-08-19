@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://fn0vhsi0owu7"]
+[gd_scene load_steps=18 format=4 uid="uid://fn0vhsi0owu7"]
 
 [ext_resource type="Script" path="res://addons/destruction/destruction.gd" id="1_fwlpq"]
 [ext_resource type="Script" path="res://Scripts/building.gd" id="1_ovamp"]
@@ -69,13 +69,14 @@ size = Vector3(1.17857, 8.52487, 1.2858)
 [sub_resource type="BoxShape3D" id="BoxShape3D_u6fef"]
 size = Vector3(11.722, 1.24115, 1.15479)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ghc6l"]
+size = Vector3(2.94385, 1.24878, 1.40771)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_rti58"]
 size = Vector3(5.95066, 5.26387, 5.41449)
 
 [node name="Cotr2" type="AnimatableBody3D"]
 script = ExtResource("1_ovamp")
-health = 10
-minDamage = 5
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.27773, 3.21925, 6.59318)
@@ -151,6 +152,10 @@ shape = SubResource("BoxShape3D_u6fef")
 [node name="CollisionShape3D17" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.164459, 11.417, 6.19028)
 shape = SubResource("BoxShape3D_u6fef")
+
+[node name="CollisionShape3D18" type="CollisionShape3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.0606108, 4.98352, 1.33889)
+shape = SubResource("BoxShape3D_ghc6l")
 
 [node name="Hurtbox" type="Area3D" parent="."]
 collision_layer = 0

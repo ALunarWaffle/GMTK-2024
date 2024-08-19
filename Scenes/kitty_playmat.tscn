@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://vhv7lmaxi3ts"]
+[gd_scene load_steps=16 format=3 uid="uid://vhv7lmaxi3ts"]
 
 [ext_resource type="PackedScene" uid="uid://usohdpuvqtrk" path="res://Scenes/kitty.tscn" id="2_otmkr"]
 [ext_resource type="PackedScene" uid="uid://bpa42ftyw1ye2" path="res://Scenes/VillageHouse.tscn" id="3_27jts"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ds6snpho6c7fn" path="res://Scenes/Buildings/Construction/cotr1.tscn" id="8_6na3q"]
 [ext_resource type="PackedScene" uid="uid://c3unhrdhft307" path="res://Scenes/ScoreTracker.tscn" id="8_qv0hq"]
 [ext_resource type="PackedScene" uid="uid://fn0vhsi0owu7" path="res://Scenes/Buildings/Construction/cotr2.tscn" id="9_ct2nd"]
+[ext_resource type="PackedScene" uid="uid://bvn43hdm1l6en" path="res://Scenes/Buildings/Construction/cotr3.tscn" id="10_rct3l"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hqfd7"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -52,33 +53,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.4278, 0.5, 2.4937)
 
 [node name="Building" parent="Buildings" instance=ExtResource("3_petix")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -26.9835, 1.4859, -2.97517)
-health = 10
-minDamage = 5
 
 [node name="Building2" parent="Buildings" instance=ExtResource("3_petix")]
 transform = Transform3D(-1.31134e-08, 0, -0.3, 0, 0.3, 0, 0.3, 0, -1.31134e-08, -9.76601, 1.5007, -5.95034)
-health = 10
-minDamage = 5
 
 [node name="Building3" parent="Buildings" instance=ExtResource("3_petix")]
 transform = Transform3D(-1.31134e-08, 0, 0.3, 0, 0.3, 0, -0.3, 0, -1.31134e-08, 3.38537, 1.22209, 9.00988)
-health = 10
-minDamage = 5
 
 [node name="Building4" parent="Buildings" instance=ExtResource("3_petix")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 3.38537, 1.22209, -3.90462)
-health = 10
-minDamage = 5
 
 [node name="Building5" parent="Buildings" instance=ExtResource("3_petix")]
 transform = Transform3D(-0.3, 0, 4.52987e-08, 0, 0.3, 0, -4.52987e-08, 0, -0.3, 22.5379, 1.22209, -3.90462)
-health = 10
-minDamage = 5
 
 [node name="Building6" parent="Buildings" instance=ExtResource("3_petix")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 22.5379, 1.22209, 4.98023)
-health = 10
-minDamage = 5
 
 [node name="Village" type="Node3D" parent="Buildings"]
 
@@ -106,5 +95,8 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -14.5704, 1.41938, 11.9
 
 [node name="Cotr2" parent="Buildings/Construction" instance=ExtResource("9_ct2nd")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -21.09, -0.205537, 10.8241)
+
+[node name="Cotr3" parent="Buildings/Construction" instance=ExtResource("10_rct3l")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -16.5089, 0.311567, 4.8405)
 
 [node name="ScoreTracker" parent="." instance=ExtResource("8_qv0hq")]

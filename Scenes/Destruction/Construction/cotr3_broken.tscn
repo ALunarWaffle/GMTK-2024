@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://bakstbb734v1b"]
+
+[ext_resource type="PackedScene" uid="uid://byqyaekm6jtt1" path="res://Models/Construction/COTR_3_d.glb" id="1_jscpf"]
+
+[node name="COTR_3_d" instance=ExtResource("1_jscpf")]
+
+[node name="CUBE_LON_038" parent="." index="0"]
+transform = Transform3D(1.63743, -0.000430167, 1.88045e-11, 2.9984e-15, -7.15742e-08, -1.63743, 0.000430167, 1.63743, -7.15742e-08, 3.11581, 1.93915, -4.81122)
+
+[node name="CUBE_LON_040" parent="." index="1"]
+transform = Transform3D(1.63743, -0.000430167, 1.88045e-11, 2.9984e-15, -7.15742e-08, -1.63743, 0.000430167, 1.63743, -7.15742e-08, -2.67436, 1.93915, -4.81274)
+
+[node name="CUBE_LON_046" parent="." index="2"]
+transform = Transform3D(1.23609e-07, 1.63743, -0.000430167, -1.63743, 1.23622e-07, 5.03047e-08, 5.03372e-08, 0.000430226, 1.63743, 0.862583, 15.4591, 11.1912)
+
+[node name="CUBE_LON_047" parent="." index="3"]
+transform = Transform3D(1.23609e-07, 1.63743, -0.000430167, -1.63743, 1.23622e-07, 5.03047e-08, 5.03372e-08, 0.000430226, 1.63743, 0.865415, 15.4159, 0.410041)
+
+[node name="CUBE_LON_048" parent="." index="4"]
+transform = Transform3D(1.63743, 0, -0.000430167, 0, 1.63743, 0, 0.000430167, 0, 1.63743, 0.310198, 17.3836, 5.48872)
