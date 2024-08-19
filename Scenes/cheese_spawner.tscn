@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbm2t1xbtw0it"]
+
+[ext_resource type="Script" path="res://Scripts/cheese_spawner.gd" id="1_tu6fb"]
+
+[node name="CheeseSpawner" type="Node3D"]
+script = ExtResource("1_tu6fb")
