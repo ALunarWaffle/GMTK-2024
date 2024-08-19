@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://7owlrn1svicy"]
+
+[ext_resource type="PackedScene" uid="uid://bxl4r7wcdhoy6" path="res://Models/Construction/COTR_2_d.glb" id="1_3jxhm"]
+
+[node name="COTR_2_d" instance=ExtResource("1_3jxhm")]
+
+[node name="COLUMN_040" parent="." index="0"]
+transform = Transform3D(1.63733, 0, 0.0175675, 0, 1.63743, 0, -0.0175675, 0, 1.63733, -4.80438, 1.86728, 0.015317)
+
+[node name="COLUMN_042" parent="." index="1"]
+transform = Transform3D(1.63733, 0, 0.0175675, 0, 1.63743, 0, -0.0175675, 0, 1.63733, 8.22158, 2.13317, 2.20849)
+
+[node name="COLUMN_044" parent="." index="2"]
+transform = Transform3D(1.63733, 0, 0.0175675, 0, 1.63743, 0, -0.0175675, 0, 1.63733, 8.13403, 1.60661, -5.95206)
+
+[node name="COLUMN_048" parent="." index="3"]
+transform = Transform3D(0.0175672, 1.63733, 1.57063e-09, -1.46397e-07, -8.84719e-15, 1.63743, 1.63733, -0.0175672, 1.46389e-07, -0.48676, 16.1349, 7.92821)
+
+[node name="CUBE_LON_022" parent="." index="4"]
+transform = Transform3D(0.0198665, 0, -1.63731, 0, 1.63743, 0, 1.63731, 0, 0.0198665, -1.36747, 1.97639, 0.779024)

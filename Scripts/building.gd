@@ -3,8 +3,8 @@ extends AnimatableBody3D
 #@onready var ani = $AnimationPlayer
 @onready var shell = $Mesh
 
-@export var health = 1
-@export var minDamage = 1
+@export var health = 10
+@export var minDamage = 5
 @export var value = 10
 @onready var tracker = get_node("../../../ScoreTracker")
 

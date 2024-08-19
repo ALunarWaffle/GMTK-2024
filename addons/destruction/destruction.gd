@@ -21,9 +21,9 @@ extends Node
 ## How many seconds until the shards fade away. Set to -1 to disable fading.
 @export var fade_delay := -1
 ## How many seconds until the shards shrink. Set to -1 to disable shrinking.
-@export var shrink_delay := -1
+@export var shrink_delay := 1
 ## How long the animation lasts before the shard is removed.
-@export var animation_length := 10.0
+@export var animation_length := 2.0
 
 @export_group("Collision")
 ## The [member RigidBody3D.collision_layer] set on the created shards.
@@ -49,7 +49,7 @@ func destroy(explosion_power := 1) -> void:
 func _get_shards() -> Array[Node]:
 	if fragmented in _cached_scenes:
 		_cached_scenes[fragmented].scale = get_node(".").scale
-		print(_cached_scenes[fragmented].scale)
+		#print(_cached_scenes[fragmented].scale)
 	if not fragmented in _cached_scenes:
 		_cached_scenes[fragmented] = fragmented.instantiate()
 		_cached_scenes[fragmented].scale = get_node(".").scale
@@ -81,11 +81,12 @@ func _add_shard(original: MeshInstance3D, explosion_power: float) -> void:
 	body.add_child(mesh)
 	body.add_child(shape)
 	shard_container.add_child(body, true)
-	body.global_position = get_parent().global_transform.origin + original.position
+	var new_pos = Vector3(get_parent().scale[0]*original.position[0],get_parent().scale[1]*original.position[1],get_parent().scale[2]*original.position[2])
+	body.global_position = get_parent().global_transform.origin + new_pos
 	body.global_rotation = get_parent().global_rotation
 	body.collision_layer = 4
 	body.collision_mask = 4
-	#print(get_parent().get_child(0))
+	#print(get_parent().scale)
 	#var build_scale = get_node("../RelativeSize").scale
 	#var object_scale = get_parent().scale
 	#var new_scale = Vector3(build_scale[0]*object_scale[0],build_scale[1]*object_scale[1],build_scale[2]*object_scale[2])

@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://pldyj26em82l"]
+
+[ext_resource type="PackedScene" uid="uid://dr36p7hbcq1l6" path="res://Models/Suburb/sub_4_d.glb" id="1_rrheu"]
+
+[node name="sub_4_d" instance=ExtResource("1_rrheu")]
+
+[node name="CUBE_LON_057" parent="." index="0"]
+transform = Transform3D(-0.0205903, 0, -1.82818, 0, 1.8283, 0, 1.82818, 0, -0.0205903, -7.27043, 2.61603, 3.96423)
+
+[node name="CUBE_LON_063" parent="." index="1"]
+transform = Transform3D(-0.0205903, 0, -1.82818, 0, 1.8283, 0, 1.82818, 0, -0.0205903, 1.80929, 2.61603, 4.06649)
+
+[node name="CUBE_LON_065" parent="." index="2"]
+transform = Transform3D(-0.0205903, 0, -1.82818, 0, 1.8283, 0, 1.82818, 0, -0.0205903, 1.85067, 2.61603, 0.392784)
+
+[node name="CUBE_LON_066" parent="." index="3"]
+transform = Transform3D(-0.0205903, 0, -1.82818, 0, 1.8283, 0, 1.82818, 0, -0.0205903, -7.18839, 2.61603, -3.31994)
+
+[node name="CUBE_LON_067" parent="." index="4"]
+transform = Transform3D(-0.0205903, 0, -1.82818, 0, 1.8283, 0, 1.82818, 0, -0.0205903, 1.89133, 2.61603, -3.21767)
+
+[node name="CUBE_LON_069" parent="." index="5"]
+transform = Transform3D(1.93821, 0, -0.0218293, 0, 1.93833, 0, 0.0218293, 0, 1.93821, 5.40549, 6.42225, 3.97468)
+
+[node name="CUBE_ROOF_017" parent="." index="6"]
+transform = Transform3D(-0.0205903, 0, -1.82818, 0, 1.8283, 0, 1.82818, 0, -0.0205903, -5.22184, 9.15772, 2.54815)
+
+[node name="CUBE_ROOF_020" parent="." index="7"]
+transform = Transform3D(-0.0169856, 0, -1.82822, 0, 1.8283, 0, 1.82822, 0, -0.0169856, -5.18497, 9.2629, -2.06339)
+
+[node name="CUBE_LON_072" parent="." index="8"]
+transform = Transform3D(0.021829, 0, 1.93821, 0, 1.93833, 0, -1.93821, 0, 0.021829, 2.85378, 6.49345, 5.08498)
+
+[node name="CUBE_LON_118" parent="." index="9"]
+transform = Transform3D(-0.0205903, 0, -1.82818, 0, 1.8283, 0, 1.82818, 0, -0.0205903, -7.22906, 2.61603, 0.290524)
+
+[node name="CUBE_LON_122" parent="." index="10"]
+transform = Transform3D(1.93821, 0, -0.0218293, 0, 1.93833, 0, 0.0218293, 0, 1.93821, -6.91208, 6.42225, 3.83595)
+
+[node name="CUBE_ROOF_043" parent="." index="11"]
+transform = Transform3D(-0.0169856, 0, -1.82822, 0, 1.8283, 0, 1.82822, 0, -0.0169856, -5.20372, 9.33301, 0.276001)
+
+[node name="CUBE_LON_125" parent="." index="12"]
+transform = Transform3D(0.021829, 0, 1.93821, 0, 1.93833, 0, -1.93821, 0, 0.021829, 2.92683, 6.45839, -1.40054)
