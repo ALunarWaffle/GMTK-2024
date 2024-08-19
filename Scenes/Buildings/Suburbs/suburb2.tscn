@@ -68,12 +68,13 @@ script = ExtResource("1_dn8fy")
 health = 10
 minDamage = 5
 
-[node name="Mesh" type="MeshInstance3D" parent="."]
+[node name="Mesh" type="MeshInstance3D" parent="." node_paths=PackedStringArray("shard_container")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.51471, 0, 2.48385)
 mesh = SubResource("ArrayMesh_ge3d0")
 skeleton = NodePath("")
 script = ExtResource("2_thq5g")
 fragmented = ExtResource("3_3cedt")
+shard_container = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.78529, 0.0296021, 0.12473)
