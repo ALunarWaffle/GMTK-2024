@@ -21,9 +21,9 @@ extends Node
 ## How many seconds until the shards fade away. Set to -1 to disable fading.
 @export var fade_delay := -1
 ## How many seconds until the shards shrink. Set to -1 to disable shrinking.
-@export var shrink_delay := -1
+@export var shrink_delay := 1
 ## How long the animation lasts before the shard is removed.
-@export var animation_length := 10.0
+@export var animation_length := 2.0
 
 @export_group("Collision")
 ## The [member RigidBody3D.collision_layer] set on the created shards.

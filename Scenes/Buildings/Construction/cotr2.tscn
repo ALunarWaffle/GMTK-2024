@@ -1,7 +1,9 @@
-[gd_scene load_steps=14 format=4 uid="uid://fn0vhsi0owu7"]
+[gd_scene load_steps=17 format=4 uid="uid://fn0vhsi0owu7"]
 
 [ext_resource type="Script" path="res://addons/destruction/destruction.gd" id="1_fwlpq"]
 [ext_resource type="Script" path="res://Scripts/building.gd" id="1_ovamp"]
+[ext_resource type="PackedScene" uid="uid://7owlrn1svicy" path="res://Scenes/Destruction/Construction/cotr2_broken.tscn" id="3_wimts"]
+[ext_resource type="Script" path="res://Scripts/hurtbox.gd" id="4_qr8tr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xa75b"]
 resource_name = "Material.003"
@@ -67,14 +69,20 @@ size = Vector3(1.17857, 8.52487, 1.2858)
 [sub_resource type="BoxShape3D" id="BoxShape3D_u6fef"]
 size = Vector3(11.722, 1.24115, 1.15479)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_rti58"]
+size = Vector3(5.95066, 5.26387, 5.41449)
+
 [node name="Cotr2" type="AnimatableBody3D"]
 script = ExtResource("1_ovamp")
+health = 10
+minDamage = 5
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.27773, 3.21925, 6.59318)
 mesh = SubResource("ArrayMesh_bangr")
 skeleton = NodePath("")
 script = ExtResource("1_fwlpq")
+fragmented = ExtResource("3_wimts")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.93388, 2.1907, -2.55939)
@@ -143,3 +151,14 @@ shape = SubResource("BoxShape3D_u6fef")
 [node name="CollisionShape3D17" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.164459, 11.417, 6.19028)
 shape = SubResource("BoxShape3D_u6fef")
+
+[node name="Hurtbox" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4_qr8tr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.288638, 6.95397, 1.74661)
+shape = SubResource("BoxShape3D_rti58")
+
+[connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_area_entered"]

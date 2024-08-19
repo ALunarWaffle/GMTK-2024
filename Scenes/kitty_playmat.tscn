@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://vhv7lmaxi3ts"]
+[gd_scene load_steps=15 format=3 uid="uid://vhv7lmaxi3ts"]
 
 [ext_resource type="PackedScene" uid="uid://usohdpuvqtrk" path="res://Scenes/kitty.tscn" id="2_otmkr"]
 [ext_resource type="PackedScene" uid="uid://bpa42ftyw1ye2" path="res://Scenes/VillageHouse.tscn" id="3_27jts"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dag872qi85jwn" path="res://Scenes/Buildings/Suburbs/suburb4.tscn" id="7_pjuqa"]
 [ext_resource type="PackedScene" uid="uid://ds6snpho6c7fn" path="res://Scenes/Buildings/Construction/cotr1.tscn" id="8_6na3q"]
 [ext_resource type="PackedScene" uid="uid://c3unhrdhft307" path="res://Scenes/ScoreTracker.tscn" id="8_qv0hq"]
+[ext_resource type="PackedScene" uid="uid://fn0vhsi0owu7" path="res://Scenes/Buildings/Construction/cotr2.tscn" id="9_ct2nd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hqfd7"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -102,5 +103,8 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -30.5246, 0.473521, 5.0
 
 [node name="Cotr1" parent="Buildings/Construction" instance=ExtResource("8_6na3q")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -14.5704, 1.41938, 11.9521)
+
+[node name="Cotr2" parent="Buildings/Construction" instance=ExtResource("9_ct2nd")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -21.09, -0.205537, 10.8241)
 
 [node name="ScoreTracker" parent="." instance=ExtResource("8_qv0hq")]
