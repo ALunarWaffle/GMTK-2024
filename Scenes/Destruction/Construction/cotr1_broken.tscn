@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcxm0etewwmci"]
+
+[ext_resource type="PackedScene" uid="uid://dyv28jmed3yxh" path="res://Models/Construction/COTR_1_d.glb" id="1_xq574"]
+
+[node name="COTR_1_d" instance=ExtResource("1_xq574")]
+
+[node name="d" parent="." index="0"]
+transform = Transform3D(1.19979, 0.668267, 0, 0, 0, 1.37334, 0.668267, -1.19979, 0, 5.57322, 1.60831, -0.162041)
+
+[node name="d1" parent="." index="1"]
+transform = Transform3D(1.19979, 0.668267, 0, 0, 0, 1.37334, 0.668267, -1.19979, 0, 4.70045, 3.41955, -0.746888)
+
+[node name="d3" parent="." index="2"]
+transform = Transform3D(1.19979, 0.668267, 0, 0, 0, 1.37334, 0.668267, -1.19979, 0, 4.0326, 1.6681, -0.819315)
+
+[node name="d33" parent="." index="3"]
+transform = Transform3D(1.34504, 0.933836, -5.5661e-08, 0, 9.75983e-08, 1.63743, 0.933836, -1.34504, 8.01704e-08, -3.91417, 29.2371, -0.976237)
+
+[node name="CUBE_LON_011" parent="." index="4"]
+transform = Transform3D(2.3346, 0, 0, 0, -0.0316796, 2.33438, 0, -2.33438, -0.0316796, 0.859467, 9.25322, -4.67798)
+
+[node name="CUBE_LON_014" parent="." index="5"]
+transform = Transform3D(2.3346, 0, 0, 0, -0.0316796, 2.33438, 0, -2.33438, -0.0316796, -3.40988, 9.25322, -4.67798)
+
+[node name="CUBE_LON_016" parent="." index="6"]
+transform = Transform3D(2.3346, 0, 0, 0, -0.0316796, 2.33438, 0, -2.33438, -0.0316796, -0.845116, 25.3413, -4.95236)
+
+[node name="CUBE_LON_027" parent="." index="7"]
+transform = Transform3D(-1.35633, 0, 0.917357, 0, 1.63743, 0, -0.917357, 0, -1.35633, 0.258846, 31.3031, -4.3753)
+
+[node name="CUBE_SMOL_020" parent="." index="8"]
+transform = Transform3D(0.0233013, 0, -2.38156, 0, 2.38168, 0, 2.38156, 0, 0.0233013, -0.023201, 13.9444, -7.54178)
+
+[node name="CUBE_SMOL_021" parent="." index="9"]
+transform = Transform3D(0.0233013, 0, -2.38156, 0, 2.38168, 0, 2.38156, 0, 0.0233013, -0.023201, 14.0163, -4.30742)
+
+[node name="CUBE_SMOL_022" parent="." index="10"]
+transform = Transform3D(1.55185, 0, -1.16643, 0, 1.94134, 0, 1.16643, 0, 1.55185, 1.22101, 31.5872, -8.78412)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://vhv7lmaxi3ts"]
+[gd_scene load_steps=14 format=3 uid="uid://vhv7lmaxi3ts"]
 
 [ext_resource type="PackedScene" uid="uid://usohdpuvqtrk" path="res://Scenes/kitty.tscn" id="2_otmkr"]
 [ext_resource type="PackedScene" uid="uid://bpa42ftyw1ye2" path="res://Scenes/VillageHouse.tscn" id="3_27jts"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cerd8gw65gs6w" path="res://Scenes/Buildings/Suburbs/suburb2.tscn" id="5_l6i7i"]
 [ext_resource type="PackedScene" uid="uid://cpnnnasxgperw" path="res://Scenes/Buildings/Suburbs/suburb3.tscn" id="6_v41iy"]
 [ext_resource type="PackedScene" uid="uid://dag872qi85jwn" path="res://Scenes/Buildings/Suburbs/suburb4.tscn" id="7_pjuqa"]
+[ext_resource type="PackedScene" uid="uid://ds6snpho6c7fn" path="res://Scenes/Buildings/Construction/cotr1.tscn" id="8_6na3q"]
 [ext_resource type="PackedScene" uid="uid://c3unhrdhft307" path="res://Scenes/ScoreTracker.tscn" id="8_qv0hq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hqfd7"]
@@ -78,21 +79,28 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 22.5379, 1.22209, 4.980
 health = 10
 minDamage = 5
 
-[node name="Subcategory" type="Node3D" parent="Buildings"]
+[node name="Village" type="Node3D" parent="Buildings"]
 
-[node name="VillageHouse" parent="Buildings/Subcategory" instance=ExtResource("3_27jts")]
+[node name="VillageHouse" parent="Buildings/Village" instance=ExtResource("3_27jts")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 12.4379, 0.248151, -0.760347)
 
-[node name="Suburb1" parent="Buildings/Subcategory" instance=ExtResource("4_3b708")]
+[node name="Suburbs" type="Node3D" parent="Buildings"]
+
+[node name="Suburb1" parent="Buildings/Suburbs" instance=ExtResource("4_3b708")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -16.5941, 0.811895, 0)
 
-[node name="Suburb2" parent="Buildings/Subcategory" instance=ExtResource("5_l6i7i")]
+[node name="Suburb2" parent="Buildings/Suburbs" instance=ExtResource("5_l6i7i")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -21.0941, 0.894376, 0)
 
-[node name="Suburb3" parent="Buildings/Subcategory" instance=ExtResource("6_v41iy")]
+[node name="Suburb3" parent="Buildings/Suburbs" instance=ExtResource("6_v41iy")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -22.2663, 0.279045, 4.42229)
 
-[node name="Suburb4" parent="Buildings/Subcategory" instance=ExtResource("7_pjuqa")]
+[node name="Suburb4" parent="Buildings/Suburbs" instance=ExtResource("7_pjuqa")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -30.5246, 0.473521, 5.08977)
+
+[node name="Construction" type="Node3D" parent="Buildings"]
+
+[node name="Cotr1" parent="Buildings/Construction" instance=ExtResource("8_6na3q")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -14.5704, 1.41938, 11.9521)
 
 [node name="ScoreTracker" parent="." instance=ExtResource("8_qv0hq")]

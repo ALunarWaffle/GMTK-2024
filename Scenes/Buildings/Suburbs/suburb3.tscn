@@ -71,12 +71,15 @@ script = ExtResource("1_bogrw")
 health = 10
 minDamage = 5
 
-[node name="Mesh" type="MeshInstance3D" parent="."]
+[node name="Mesh" type="MeshInstance3D" parent="." node_paths=PackedStringArray("shard_container")]
 transform = Transform3D(0.000828461, 0, 1, 0, 1, 0, -1, 0, 0.000828461, 3.28946, 1.84926, 3.65413)
 mesh = SubResource("ArrayMesh_cxomm")
 skeleton = NodePath("")
 script = ExtResource("2_58fw8")
 fragmented = ExtResource("3_igki7")
+shard_container = NodePath("../..")
+shrink_delay = 1
+animation_length = 2.0
 
 [node name="Hurtbox" type="Area3D" parent="."]
 collision_layer = 0
