@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://jp7bjh830n08"]
+[gd_scene load_steps=11 format=3 uid="uid://jp7bjh830n08"]
 
 [ext_resource type="PackedScene" uid="uid://cl3yil7hlr2ta" path="res://Scenes/ai_kitty.tscn" id="1_rbdqc"]
 [ext_resource type="PackedScene" uid="uid://bghho4kek3vva" path="res://Scenes/mouse.tscn" id="2_nwv8f"]
 [ext_resource type="PackedScene" uid="uid://tqqalqcpwhhk" path="res://Scenes/building.tscn" id="3_2l458"]
 [ext_resource type="PackedScene" uid="uid://40bfug0lns8" path="res://Scenes/exit.tscn" id="3_02twb"]
 [ext_resource type="PackedScene" uid="uid://bpa42ftyw1ye2" path="res://Scenes/VillageHouse.tscn" id="5_qbun0"]
+[ext_resource type="PackedScene" uid="uid://ecntucxd7j52" path="res://Scenes/Buildings/suburb1.tscn" id="6_scqpd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hqfd7"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -77,5 +78,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5379, 0.236192, 4.98023)
 health = 10
 minDamage = 5
 
-[node name="VillageHouse" parent="." instance=ExtResource("5_qbun0")]
+[node name="Subcategory" type="Node3D" parent="Buildings"]
+
+[node name="VillageHouse" parent="Buildings/Subcategory" instance=ExtResource("5_qbun0")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 14.8984, -0.229632, 0)
+
+[node name="Suburb1" parent="Buildings/Subcategory" instance=ExtResource("6_scqpd")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 9.83691, 0.289706, -3.82792)

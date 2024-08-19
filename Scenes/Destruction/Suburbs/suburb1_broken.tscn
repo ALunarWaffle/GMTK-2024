@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://hm6v5b8mgua"]
+
+[ext_resource type="PackedScene" uid="uid://bsb06hcvumelq" path="res://Models/Suburb/sub_1_d.glb" id="1_h1o5k"]
+
+[node name="sub_1_d" instance=ExtResource("1_h1o5k")]
+
+[node name="CUBE_LON_005" parent="." index="0"]
+transform = Transform3D(1.82586, 0, 0.000339632, 0, 1.82586, 0, -0.000339632, 0, 1.82586, -3.33867, 2.46475, 0.283003)
+
+[node name="CUBE_LON_006" parent="." index="1"]
+transform = Transform3D(1.82586, 0, 0.000339632, 0, 1.82586, 0, -0.000339632, 0, 1.82586, 3.25843, 2.46885, 0.262404)
+
+[node name="CUBE_ROOF_008" parent="." index="2"]
+transform = Transform3D(1.2147, 0, 0.000225845, 0, 1.2147, 0, -0.000225845, 0, 1.2147, -3.18456, 8.50992, 1.06319)
+
+[node name="CUBE_ROOF_009" parent="." index="3"]
+transform = Transform3D(1.2147, 0, 0.000225845, 0, 1.2147, 0, -0.000225845, 0, 1.2147, 3.70834, 8.41121, 0.971624)
+
+[node name="CUBE_LON_010" parent="." index="4"]
+transform = Transform3D(0.00749957, 1.82584, 0.000339513, -1.82584, 0.00749957, -6.87207e-08, -1.46301e-06, -0.000339469, 1.82586, 0.717677, 9.7901, 0.0308035)
+
+[node name="CUBE_LON_102" parent="." index="5"]
+transform = Transform3D(0.000339632, 0, -1.82586, 0, 1.82586, 0, 1.82586, 0, 0.000339632, -1.74842, 6.14453, -6.45131)
+
+[node name="CUBE_LON_103" parent="." index="6"]
+transform = Transform3D(0.000339632, 0, -1.82586, 0, 1.82586, 0, 1.82586, 0, 0.000339632, -1.7472, 6.14453, 0.0543581)
+
+[node name="CUBE_LON_104" parent="." index="7"]
+transform = Transform3D(0.000339632, 0, -1.82586, 0, 1.82586, 0, 1.82586, 0, 0.000339632, -1.80385, 6.09491, -3.19451)
