@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bcxm0etewwmci"]
 
-[ext_resource type="PackedScene" uid="uid://dyv28jmed3yxh" path="res://Models/Construction/COTR_1_d.glb" id="1_xq574"]
+[ext_resource type="PackedScene" uid="uid://ebn4vouj6s01" path="res://Models/Construction/COTR_1_d.glb" id="1_xq574"]
 
 [node name="COTR_1_d" instance=ExtResource("1_xq574")]
 

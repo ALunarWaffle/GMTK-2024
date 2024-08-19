@@ -1,0 +1,80 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5r68mcyeqhqv"]
+
+[ext_resource type="PackedScene" uid="uid://5a52vkcs2pej" path="res://Models/Construction/COTR_2_d.glb" id="1_3jxhm"]
+
+[node name="COTR_2_d" instance=ExtResource("1_3jxhm")]
+
+[node name="COLUMN_026" parent="." index="0"]
+transform = Transform3D(1.63733, 0, 0.0175675, 0, 1.63743, 0, -0.0175675, 0, 1.63733, -4.82748, 1.86728, -2.1377)
+
+[node name="COLUMN_040" parent="." index="1"]
+transform = Transform3D(1.63733, 0, 0.0175675, 0, 1.63743, 0, -0.0175675, 0, 1.63733, -4.80438, 1.86728, 0.015317)
+
+[node name="COLUMN_041" parent="." index="2"]
+transform = Transform3D(1.63733, 0, 0.0175675, 0, 1.63743, 0, -0.0175675, 0, 1.63733, 5.26443, 5.17748, -0.0416596)
+
+[node name="COLUMN_042" parent="." index="3"]
+transform = Transform3D(1.63733, 0, 0.0175675, 0, 1.63743, 0, -0.0175675, 0, 1.63733, 8.22158, 2.13317, 2.20849)
+
+[node name="COLUMN_043" parent="." index="4"]
+transform = Transform3D(1.63733, 0, 0.0175675, 0, 1.63743, 0, -0.0175675, 0, 1.63733, -6.70504, 2.13317, 2.36865)
+
+[node name="COLUMN_044" parent="." index="5"]
+transform = Transform3D(1.63733, 0, 0.0175675, 0, 1.63743, 0, -0.0175675, 0, 1.63733, 8.13403, 1.60661, -5.95206)
+
+[node name="COLUMN_045" parent="." index="6"]
+transform = Transform3D(1.63733, 0, 0.0175675, 0, 1.63743, 0, -0.0175675, 0, 1.63733, -6.79259, 1.72536, -5.79191)
+
+[node name="COLUMN_046" parent="." index="7"]
+transform = Transform3D(1.63733, 0, 0.0175675, 0, 1.63743, 0, -0.0175675, 0, 1.63733, 8.29609, 2.13317, 9.15274)
+
+[node name="COLUMN_047" parent="." index="8"]
+transform = Transform3D(1.63733, 0, 0.0175675, 0, 1.63743, 0, -0.0175675, 0, 1.63733, -6.63053, 2.13317, 9.3129)
+
+[node name="COLUMN_048" parent="." index="9"]
+transform = Transform3D(0.0175672, 1.63733, 1.57063e-09, -1.46397e-07, -8.84719e-15, 1.63743, 1.63733, -0.0175672, 1.46389e-07, -0.48676, 16.1349, 7.92821)
+
+[node name="COLUMN_049" parent="." index="10"]
+transform = Transform3D(0.0175672, 1.63733, 1.57063e-09, -1.46397e-07, -8.84719e-15, 1.63743, 1.63733, -0.0175672, 1.46389e-07, -0.560654, 16.1349, 1.04063)
+
+[node name="COLUMN_050" parent="." index="11"]
+transform = Transform3D(0.0175672, 1.63733, 1.57063e-09, -1.46397e-07, -8.84719e-15, 1.63743, 1.63733, -0.0175672, 1.46389e-07, -0.648046, 15.7174, -7.10468)
+
+[node name="CUBE_LON_012" parent="." index="12"]
+transform = Transform3D(1.63733, 0, 0.0175675, 0, 1.63743, 0, -0.0175675, 0, 1.63733, 5.35344, 1.99542, 0.528797)
+
+[node name="CUBE_LON_013" parent="." index="13"]
+transform = Transform3D(-0.00939321, 0, 1.6374, 0, 1.63743, 0, -1.6374, 0, -0.00939321, 3.41897, 1.973, -4.07121)
+
+[node name="CUBE_LON_015" parent="." index="14"]
+transform = Transform3D(0.0175674, 0, -1.63733, 0, 1.63743, 0, 1.63733, 0, 0.0175674, -1.34129, 5.3011, -1.28852)
+
+[node name="CUBE_LON_017" parent="." index="15"]
+transform = Transform3D(0.0198665, 0, -1.63731, 0, 1.63743, 0, 1.63731, 0, 0.0198665, -1.41113, 1.97639, -3.28988)
+
+[node name="CUBE_LON_018" parent="." index="16"]
+transform = Transform3D(0.0175674, 0, -1.63733, 0, 1.63743, 0, 1.63733, 0, 0.0175674, -1.32657, 5.31377, -3.37122)
+
+[node name="CUBE_LON_019" parent="." index="17"]
+transform = Transform3D(0.0198665, 0, -1.63731, 0, 1.63743, 0, 1.63731, 0, 0.0198665, -1.38803, 1.97639, -1.13686)
+
+[node name="CUBE_LON_020" parent="." index="18"]
+transform = Transform3D(-0.00939321, 0, 1.6374, 0, 1.63743, 0, -1.6374, 0, -0.00939321, 3.27962, 8.65588, 0.10903)
+
+[node name="CUBE_LON_021" parent="." index="19"]
+transform = Transform3D(0.0175674, 0, -1.63733, 0, 1.63743, 0, 1.63733, 0, 0.0175674, -0.419201, 5.3011, 0.617691)
+
+[node name="CUBE_LON_022" parent="." index="20"]
+transform = Transform3D(0.0198665, 0, -1.63731, 0, 1.63743, 0, 1.63731, 0, 0.0198665, -1.36747, 1.97639, 0.779024)
+
+[node name="CUBE_LON_023" parent="." index="21"]
+transform = Transform3D(0.0175674, 0, -1.63733, 0, 1.63743, 0, 1.63733, 0, 0.0175674, -0.396843, 5.3011, 2.70138)
+
+[node name="CUBE_LON_024" parent="." index="22"]
+transform = Transform3D(0.0198665, 0, -1.63731, 0, 1.63743, 0, 1.63731, 0, 0.0198665, -1.34512, 1.97639, 2.86271)
+
+[node name="CUBE_LON_025" parent="." index="23"]
+transform = Transform3D(0.0175674, 0, -1.63733, 0, 1.63743, 0, 1.63733, 0, 0.0175674, 0.482911, 8.66251, 0.698762)
+
+[node name="CUBE_LON_026" parent="." index="24"]
+transform = Transform3D(0.0175674, 0, -1.63733, 0, 1.63743, 0, 1.63733, 0, 0.0175674, 0.505266, 8.66251, 2.78245)
