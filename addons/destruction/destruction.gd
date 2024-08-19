@@ -53,7 +53,7 @@ func _get_shards() -> Array[Node]:
 	if not fragmented in _cached_scenes:
 		_cached_scenes[fragmented] = fragmented.instantiate()
 		_cached_scenes[fragmented].scale = get_node(".").scale
-		print(_cached_scenes[fragmented].scale)
+		#print(_cached_scenes[fragmented].scale)
 		for shard_mesh in _cached_scenes[fragmented].get_children():
 			_cached_shapes[shard_mesh] = shard_mesh.mesh.create_convex_shape()
 	return (_cached_scenes[fragmented].get_children() as Array)\
@@ -65,7 +65,7 @@ func set_fragmented(to: PackedScene) -> void:
 	
 	if is_inside_tree():
 		get_tree().node_configuration_warning_changed.emit(self)
-	print(fragmented)
+	#print(fragmented)
 
 
 func _get_configuration_warnings() -> PackedStringArray:

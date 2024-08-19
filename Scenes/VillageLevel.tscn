@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://r4dn65pirdkx"]
+[gd_scene load_steps=13 format=3 uid="uid://r4dn65pirdkx"]
 
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="1_20qaq"]
 [ext_resource type="Shader" path="res://VillageLevel.gdshader" id="1_xukam"]
@@ -6,10 +6,12 @@
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="3_mll6q"]
 [ext_resource type="PackedScene" uid="uid://usohdpuvqtrk" path="res://Scenes/kitty.tscn" id="4_ijtic"]
 [ext_resource type="PackedScene" uid="uid://bpa42ftyw1ye2" path="res://Scenes/VillageHouse.tscn" id="5_lde1x"]
+[ext_resource type="PackedScene" uid="uid://c3unhrdhft307" path="res://Scenes/ScoreTracker.tscn" id="7_edr6c"]
+[ext_resource type="PackedScene" uid="uid://40bfug0lns8" path="res://Scenes/exit.tscn" id="8_pfpbg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_beowo"]
+render_priority = 0
 shader = ExtResource("1_xukam")
-shader_parameter/skyColor = Color(0.0240961, 0.08608, 0.0769842, 1)
 
 [sub_resource type="Sky" id="Sky_l78vr"]
 sky_material = SubResource("ShaderMaterial_beowo")
@@ -176,6 +178,7 @@ omni_attenuation = 0.721
 [node name="VillageHouse3" parent="Buildings/VillageRow2" instance=ExtResource("5_lde1x")]
 transform = Transform3D(0.199814, 0.00544332, -0.0117005, -0.00568326, 0.19979, -0.0125835, 0.00648326, 0.00737389, 0.349578, 16.0543, 0.902735, 0.72832)
 health = 20
+value = 30
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Buildings/VillageRow2/VillageHouse3"]
 transform = Transform3D(-0.0259177, 0.0490497, -0.99846, -0.178809, 0.98246, 0.0529052, 0.983542, 0.179905, -0.0166926, 0.0495015, 9.17118, -1.18589)
@@ -296,3 +299,8 @@ shadow_enabled = true
 shadow_blur = 10.0
 omni_range = 6.997
 omni_attenuation = 0.721
+
+[node name="ScoreTracker" parent="." instance=ExtResource("7_edr6c")]
+
+[node name="Exit" parent="." instance=ExtResource("8_pfpbg")]
+transform = Transform3D(-0.0991018, 0.0133361, 0.000986396, 0.0132783, 0.0990096, -0.00456062, -0.00158484, -0.00438868, -0.0998911, -18.7208, 3.2741, 23.4292)

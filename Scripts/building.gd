@@ -5,13 +5,18 @@ extends AnimatableBody3D
 
 @export var health = 1
 @export var minDamage = 1
+@export var value = 10
+@onready var tracker = get_node("../../../ScoreTracker")
+
 
 func take_damage(damage):
 	if (damage >= minDamage):
 		health -= damage
-		print(health)
+		#print(health)
 		if (health <= 0):
 			if shell!=null and shell.has_method("destroy"):
-				print("DESTROYING")
+				if tracker != null and tracker.has_method("update_score"):
+					tracker.update_score(value)
+				#print("DESTROYING")
 				shell.destroy()
 			#ani.play("temp_crumble")
