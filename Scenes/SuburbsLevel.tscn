@@ -1,0 +1,73 @@
+[gd_scene load_steps=13 format=3 uid="uid://yvorpoe6swv8"]
+
+[ext_resource type="Shader" path="res://VillageLevel.gdshader" id="1_8lokw"]
+[ext_resource type="PackedScene" uid="uid://usohdpuvqtrk" path="res://Scenes/kitty.tscn" id="2_n8pjb"]
+[ext_resource type="PackedScene" uid="uid://c3unhrdhft307" path="res://Scenes/ScoreTracker.tscn" id="3_3cj20"]
+[ext_resource type="PackedScene" uid="uid://ecntucxd7j52" path="res://Scenes/Buildings/Suburbs/suburb1.tscn" id="3_wy7iv"]
+[ext_resource type="PackedScene" uid="uid://40bfug0lns8" path="res://Scenes/exit.tscn" id="4_ads0l"]
+[ext_resource type="PackedScene" uid="uid://cerd8gw65gs6w" path="res://Scenes/Buildings/Suburbs/suburb2.tscn" id="4_vkslq"]
+[ext_resource type="PackedScene" uid="uid://cpnnnasxgperw" path="res://Scenes/Buildings/Suburbs/suburb3.tscn" id="5_qf5es"]
+[ext_resource type="PackedScene" uid="uid://dag872qi85jwn" path="res://Scenes/Buildings/Suburbs/suburb4.tscn" id="6_dx6io"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_40gc4"]
+render_priority = 0
+shader = ExtResource("1_8lokw")
+
+[sub_resource type="Sky" id="Sky_l78vr"]
+sky_material = SubResource("ShaderMaterial_40gc4")
+
+[sub_resource type="Environment" id="Environment_arpyh"]
+background_mode = 1
+background_color = Color(0.298571, 0.492047, 0.641105, 1)
+sky = SubResource("Sky_l78vr")
+reflected_light_source = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_17yye"]
+albedo_color = Color(0.477242, 0.491925, 0.464157, 1)
+
+[node name="SuburbsLevel" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_arpyh")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.492086, 0.336175, -0.803018, 0.353762, 0.765612, 0.5373, 0.795426, -0.548475, 0.257821, 0, 0, 0)
+light_color = Color(0.621058, 0.593024, 0.38535, 1)
+light_energy = 0.933
+light_angular_distance = 39.05
+shadow_enabled = true
+shadow_blur = 1.808
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.999973, -0.00524502, 0.00524502, 0, 0.707107, 0.707107, -0.00741758, -0.707087, 0.707087, 0, 17.5867, 33.4439)
+
+[node name="KittyBody3D" parent="." instance=ExtResource("2_n8pjb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3935, 2.67134, 2.4937)
+
+[node name="Buildings" type="Node3D" parent="."]
+
+[node name="Subcategory" type="Node3D" parent="Buildings"]
+
+[node name="Suburb1" parent="Buildings/Subcategory" instance=ExtResource("3_wy7iv")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 13.2524, 1.01623, -4.6747)
+
+[node name="Suburb2" parent="Buildings/Subcategory" instance=ExtResource("4_vkslq")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 14.6198, 1.12019, 5.76121)
+
+[node name="Suburb3" parent="Buildings/Subcategory" instance=ExtResource("5_qf5es")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 10.0627, 0.0442971, 11.7952)
+
+[node name="Suburb4" parent="Buildings/Subcategory" instance=ExtResource("6_dx6io")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.276009, 13.2686)
+
+[node name="Floor" type="CSGBox3D" parent="."]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, 0, 0)
+use_collision = true
+collision_layer = 5
+size = Vector3(0.80188, 1, 1)
+material = SubResource("StandardMaterial3D_17yye")
+
+[node name="ScoreTracker" parent="." instance=ExtResource("3_3cj20")]
+
+[node name="Exit" parent="." instance=ExtResource("4_ads0l")]
+transform = Transform3D(-0.0991018, 0.0133361, 0.000986396, 0.0132783, 0.0990096, -0.00456062, -0.00158484, -0.00438868, -0.0998911, -18.7208, 3.2741, 23.4292)
