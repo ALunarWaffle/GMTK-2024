@@ -1,0 +1,99 @@
+[gd_scene load_steps=8 format=3 uid="uid://2labv32ukg6r"]
+
+[ext_resource type="Script" path="res://Scripts/win_screen.gd" id="1_6twip"]
+[ext_resource type="Texture2D" uid="uid://bjbtgixu20b5t" path="res://Models/Characters/end_screen.png" id="2_cgmg1"]
+[ext_resource type="Script" path="res://Scripts/score_tracker.gd" id="2_l83lu"]
+[ext_resource type="Texture2D" uid="uid://b1c6u3n42lu6f" path="res://Models/Characters/A.png" id="4_siej8"]
+[ext_resource type="Texture2D" uid="uid://dgvaqudxojiuo" path="res://Models/Characters/B.png" id="5_t0ty1"]
+[ext_resource type="Texture2D" uid="uid://cpr2ab5tc6jp1" path="res://Models/Characters/C.png" id="6_i61a3"]
+[ext_resource type="Texture2D" uid="uid://ya8yhmvo6lo0" path="res://Models/Characters/F.png" id="7_lytq7"]
+
+[node name="WinScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_6twip")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+texture = ExtResource("2_cgmg1")
+
+[node name="A" type="TextureRect" parent="."]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+texture = ExtResource("4_siej8")
+
+[node name="B" type="TextureRect" parent="."]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+texture = ExtResource("5_t0ty1")
+
+[node name="C" type="TextureRect" parent="."]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+texture = ExtResource("6_i61a3")
+
+[node name="F" type="TextureRect" parent="."]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+texture = ExtResource("7_lytq7")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+offset_left = 231.0
+offset_top = 155.0
+offset_right = 871.0
+offset_bottom = 515.0
+vertical = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BoxContainer"]
+custom_minimum_size = Vector2(285, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+bbcode_enabled = true
+text = "Oh no! You were caught by the kitty! 
+"
+
+[node name="ScoreTracker" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_l83lu")
+
+[node name="Label" type="Label" parent="ScoreTracker"]
+visible = false
+offset_right = 207.0
+offset_bottom = 97.0
+
+[node name="BoxContainer2" type="BoxContainer" parent="."]
+layout_mode = 0
+offset_left = 417.0
+offset_top = 483.0
+offset_right = 513.0
+offset_bottom = 523.0
+
+[node name="Quit" type="Button" parent="BoxContainer2"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 0.0
+text = "Main Menu"
+
+[connection signal="pressed" from="BoxContainer2/Quit" to="." method="_on_quit_pressed"]

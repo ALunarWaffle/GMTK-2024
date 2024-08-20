@@ -16,7 +16,7 @@ func _on_start_pressed():
 
 
 func _on_quit_pressed():
-	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/title.tscn")
 
 
 

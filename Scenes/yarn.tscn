@@ -1,8 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://chkwg0y3de1ci"]
 
 [ext_resource type="Script" path="res://Scripts/yarn.gd" id="1_47r5b"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_3t3iy"]
+[ext_resource type="PackedScene" uid="uid://dvm2o3ykofk1o" path="res://Models/Characters/yarn_ball.glb" id="2_yix7j"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ob4fu"]
 
@@ -12,9 +11,6 @@ size = Vector3(1.5, 1.5, 1.5)
 [node name="Yarn" type="CharacterBody3D"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("1_47r5b")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_3t3iy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00900006, 0)
@@ -27,3 +23,5 @@ collision_mask = 9
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0541148, 0)
 shape = SubResource("BoxShape3D_ar4lw")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("2_yix7j")]

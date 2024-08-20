@@ -1,5 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b87gf8qjhe40a"]
 
+[ext_resource type="PackedScene" uid="uid://dkm6oqovyugac" path="res://Models/Characters/cheese_wedge.glb" id="1_dnxkl"]
+
 [sub_resource type="GDScript" id="GDScript_kujne"]
 script/source = "extends CharacterBody3D
 
@@ -23,8 +25,6 @@ func _physics_process(delta):
 	move_and_slide()
 "
 
-[sub_resource type="PrismMesh" id="PrismMesh_j6tm1"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_1wrcf"]
 size = Vector3(0.1, 0.1, 0.1)
 
@@ -35,11 +35,6 @@ size = Vector3(0.3, 0.2, 0.4)
 collision_layer = 5
 collision_mask = 5
 script = SubResource("GDScript_kujne")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.2, 0, 0, 0, -1.31134e-08, -0.1, 0, 0.3, -4.37114e-09, 0, 0.05, 0)
-mesh = SubResource("PrismMesh_j6tm1")
-skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0529398, 0)
@@ -52,3 +47,6 @@ collision_mask = 5
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0541148, 0)
 shape = SubResource("BoxShape3D_g8h5w")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_dnxkl")]
+transform = Transform3D(0.125, 0, 0, 0, 0.125, 0, 0, 0, 0.125, 0, 0.0552775, -0.00543572)

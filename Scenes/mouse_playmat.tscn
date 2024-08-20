@@ -47,7 +47,7 @@ environment = SubResource("Environment_ppyva")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.540198, -0.660905, -0.52095, -0.676891, -0.026565, 0.735605, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-light_energy = 0.5
+light_energy = 0.4
 shadow_enabled = true
 
 [node name="Buildings" type="Node3D" parent="."]
@@ -522,7 +522,7 @@ shape = SubResource("BoxShape3D_y1hkf")
 
 [node name="MouseBody3D" parent="." instance=ExtResource("2_nwv8f")]
 transform = Transform3D(0.0666337, 0, 0.074565, 0, 0.1, 0, -0.074565, 0, 0.0666337, 32.1448, 0.708678, 14.6881)
-SPEED = 2.5
+SPEED = 3.0
 
 [node name="Timer" type="Control" parent="MouseBody3D"]
 layout_mode = 3
@@ -562,7 +562,7 @@ offset_right = 207.0
 offset_bottom = 97.0
 
 [node name="AIKittyBody3D" parent="." instance=ExtResource("1_rbdqc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.0374, -10.4606, 10.2586)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 32.0374, -10.4606, 10.2586)
 
 [node name="carpet" parent="." instance=ExtResource("12_3308y")]
 transform = Transform3D(-1.74846e-07, 0, 6, 0, 3, 0, -4, 0, -2.62268e-07, 0, 0.5, 0)
@@ -572,7 +572,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -22)
 
 [node name="CheeseSpawner" parent="." instance=ExtResource("16_q7wo3")]
 cheeseOdds = 1
-cheeseTimer = 0.1
+cheeseTimer = 0.01
 
 [node name="Node3D" type="Node3D" parent="CheeseSpawner"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.2621, 1.1318, 12.8339)

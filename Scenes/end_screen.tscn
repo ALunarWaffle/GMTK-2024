@@ -13,8 +13,10 @@ script = ExtResource("1_vfhf6")
 
 [node name="BoxContainer" type="BoxContainer" parent="."]
 layout_mode = 0
-offset_right = 640.0
-offset_bottom = 360.0
+offset_left = 227.0
+offset_top = 108.0
+offset_right = 867.0
+offset_bottom = 468.0
 vertical = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="BoxContainer"]
@@ -24,8 +26,6 @@ size_flags_horizontal = 4
 bbcode_enabled = true
 text = "Oh no! You were caught by the kitty! 
 "
-visible_characters = 100
-visible_ratio = 2.17391
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="BoxContainer"]
 custom_minimum_size = Vector2(80, 25)

@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c3unhrdhft307" path="res://Scenes/ScoreTracker.tscn" id="8_qv0hq"]
 [ext_resource type="PackedScene" uid="uid://fn0vhsi0owu7" path="res://Scenes/Buildings/Construction/cotr2.tscn" id="9_ct2nd"]
 [ext_resource type="PackedScene" uid="uid://bvn43hdm1l6en" path="res://Scenes/Buildings/Construction/cotr3.tscn" id="10_rct3l"]
-[ext_resource type="PackedScene" uid="uid://40bfug0lns8" path="res://Scenes/exit.tscn" id="11_bmy4r"]
+[ext_resource type="PackedScene" uid="uid://dv6w2cn3vr0nj" path="res://Scenes/helipad_mesh.tscn" id="12_qk6y5"]
 [ext_resource type="Script" path="res://Scripts/timer.gd" id="13_5isb7"]
 [ext_resource type="PackedScene" uid="uid://b1h4n7jlbcvxy" path="res://Scenes/Models/carpet.glb" id="14_6cwr8"]
 [ext_resource type="PackedScene" uid="uid://d0c4oqjvjd8b0" path="res://Scenes/yarn_spawner.tscn" id="15_qqsy6"]
@@ -61,7 +61,10 @@ collision_layer = 5
 material = SubResource("StandardMaterial3D_mkgg0")
 
 [node name="KittyBody3D" parent="." instance=ExtResource("2_otmkr")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -38.291, 0.588, -0.925)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -38.291, 1.06581, -0.925)
+SPEED = 10.0
+JUMP_VELOCITY = 12
+gravity = 16
 
 [node name="Buildings" type="Node3D" parent="."]
 
@@ -392,32 +395,32 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.8331, 0, 0)
 
 [node name="Cotr1" parent="Buildings/Construction" instance=ExtResource("8_6na3q")]
 transform = Transform3D(0.297117, 0, -0.0414927, 0, 0.3, 0, 0.0414927, 0, 0.297117, 0.756771, 1.41938, 11.9521)
-health = 25
+health = 20
 value = 1000
 
 [node name="Cotr4" parent="Buildings/Construction" instance=ExtResource("8_6na3q")]
 transform = Transform3D(0.281945, 0, -0.102503, 0, 0.3, 0, 0.102503, 0, 0.281945, 0.756771, 1.41938, -0.445796)
-health = 25
+health = 20
 value = 1000
 
 [node name="Cotr5" parent="Buildings/Construction" instance=ExtResource("8_6na3q")]
 transform = Transform3D(0.339804, 0, 0.0838663, 0, 0.35, 0, -0.0838663, 0, 0.339804, 11.0066, 1.41938, -0.445796)
-health = 25
+health = 20
 value = 1000
 
 [node name="Cotr6" parent="Buildings/Construction" instance=ExtResource("8_6na3q")]
 transform = Transform3D(-0.14454, 0, 0.262884, 0, 0.3, 0, -0.262884, 0, -0.14454, 11.0066, 1.41938, -9.26646)
-health = 25
+health = 20
 value = 1000
 
 [node name="Cotr7" parent="Buildings/Construction" instance=ExtResource("8_6na3q")]
 transform = Transform3D(0.12831, 0, -0.325633, 0, 0.35, 0, 0.325633, 0, 0.12831, -6.3391, 1.41938, -9.26646)
-health = 25
+health = 20
 value = 1000
 
 [node name="Cotr8" parent="Buildings/Construction" instance=ExtResource("8_6na3q")]
 transform = Transform3D(0.149288, 0, 0.260218, 0, 0.3, 0, -0.260218, 0, 0.149288, -13.251, 1.41938, -16.4668)
-health = 25
+health = 20
 value = 1000
 
 [node name="Cotr2" parent="Buildings/Construction" instance=ExtResource("9_ct2nd")]
@@ -503,7 +506,7 @@ value = 150
 [node name="ScoreTracker" parent="." instance=ExtResource("8_qv0hq")]
 metadata/_edit_use_anchors_ = true
 
-[node name="Exit" parent="." instance=ExtResource("11_bmy4r")]
+[node name="Helipad2" parent="." instance=ExtResource("12_qk6y5")]
 transform = Transform3D(-0.199237, 0, 0.151065, 0, 0.250032, 0, -0.151065, 0, -0.199237, -39.1071, 0.604367, -13.6668)
 
 [node name="Invisible Walls" type="StaticBody3D" parent="."]

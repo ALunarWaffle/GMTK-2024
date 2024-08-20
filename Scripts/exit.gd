@@ -15,4 +15,6 @@ func _process(delta):
 
 func _on_area_3d_body_entered(body):
 	if body != null and body == get_node("../MouseBody3D"):
-		get_tree().change_scene_to_file("res://Scenes/end_screen.tscn")
+		var scoreBoard = get_node("../MouseBody3D/ScoreTracker")
+		scoreBoard.save_score()
+		get_tree().change_scene_to_file("res://Scenes/win_screen.tscn")
