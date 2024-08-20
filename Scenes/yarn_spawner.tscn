@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0c4oqjvjd8b0"]
+
+[ext_resource type="Script" path="res://Scripts/yarn_spawner.gd" id="1_dlf12"]
+
+[node name="YarnSpawner" type="Node3D"]
+script = ExtResource("1_dlf12")

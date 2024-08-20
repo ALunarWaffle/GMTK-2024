@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://bghho4kek3vva"]
+[gd_scene load_steps=17 format=4 uid="uid://bghho4kek3vva"]
 
 [ext_resource type="Script" path="res://Scripts/mouse.gd" id="1_6ubpe"]
 [ext_resource type="Script" path="res://Scripts/camera.gd" id="2_6rdtg"]
@@ -149,6 +149,9 @@ shadow_mesh = SubResource("ArrayMesh_26nl6")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3r4ep"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_rloml"]
+size = Vector3(4, 1.5, 4)
+
 [node name="MouseBody3D" type="CharacterBody3D"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 script = ExtResource("1_6ubpe")
@@ -188,8 +191,18 @@ mesh = SubResource("ArrayMesh_58d2r")
 skeleton = NodePath("")
 
 [node name="Hurtbox" type="Area3D" parent="."]
+collision_layer = 9
+collision_mask = 9
 script = ExtResource("4_bsvby")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.5, 0)
 shape = SubResource("CapsuleShape3D_3r4ep")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.742795, 0)
+shape = SubResource("BoxShape3D_rloml")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

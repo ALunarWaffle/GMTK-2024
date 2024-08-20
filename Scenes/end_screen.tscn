@@ -13,22 +13,48 @@ script = ExtResource("1_vfhf6")
 
 [node name="BoxContainer" type="BoxContainer" parent="."]
 layout_mode = 0
-offset_left = 104.0
-offset_top = 72.0
-offset_right = 905.0
-offset_bottom = 457.0
+offset_right = 640.0
+offset_bottom = 360.0
 vertical = true
 
-[node name="Start" type="Button" parent="BoxContainer"]
-custom_minimum_size = Vector2(0, 100)
+[node name="RichTextLabel" type="RichTextLabel" parent="BoxContainer"]
+custom_minimum_size = Vector2(285, 25)
 layout_mode = 2
-text = "Play Again"
+size_flags_horizontal = 4
+bbcode_enabled = true
+text = "Oh no! You were caught by the kitty! 
+"
+visible_characters = 100
+visible_ratio = 2.17391
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="BoxContainer"]
+custom_minimum_size = Vector2(80, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+bbcode_enabled = true
+text = "Try again?
+"
+
+[node name="Start" type="Button" parent="BoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Replay (mouse section)"
+
+[node name="Quit2" type="Button" parent="BoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 0.0
+text = "Replay (Kitty Section)"
 
 [node name="Quit" type="Button" parent="BoxContainer"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_stretch_ratio = 0.0
-text = "Quit"
+text = "Main Menu"
 
 [connection signal="pressed" from="BoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="BoxContainer/Quit2" to="." method="_on_quit_2_pressed"]
 [connection signal="pressed" from="BoxContainer/Quit" to="." method="_on_quit_pressed"]

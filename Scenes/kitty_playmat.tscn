@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://vhv7lmaxi3ts"]
+[gd_scene load_steps=21 format=3 uid="uid://vhv7lmaxi3ts"]
 
 [ext_resource type="Script" path="res://Scenes/kitty_playmat.gd" id="1_kas87"]
 [ext_resource type="PackedScene" uid="uid://usohdpuvqtrk" path="res://Scenes/kitty.tscn" id="2_otmkr"]
@@ -14,9 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://40bfug0lns8" path="res://Scenes/exit.tscn" id="11_bmy4r"]
 [ext_resource type="Script" path="res://Scripts/timer.gd" id="13_5isb7"]
 [ext_resource type="PackedScene" uid="uid://b1h4n7jlbcvxy" path="res://Scenes/Models/carpet.glb" id="14_6cwr8"]
+[ext_resource type="PackedScene" uid="uid://d0c4oqjvjd8b0" path="res://Scenes/yarn_spawner.tscn" id="15_qqsy6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hqfd7"]
-sky_top_color = Color(0.3678, 0.729093, 0.977665, 1)
+sky_top_color = Color(0.662138, 0.780625, 0.873694, 1)
 sky_horizon_color = Color(0.6457, 0.655207, 0.670218, 1)
 sky_curve = 0.395852
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -562,5 +563,98 @@ metadata/_edit_use_anchors_ = true
 
 [node name="carpet" parent="." instance=ExtResource("14_6cwr8")]
 transform = Transform3D(-1.74846e-07, 0, 6, 0, 3, 0, -4, 0, -2.62268e-07, 0, 0.5, 0)
+
+[node name="YarnSpawner" parent="." instance=ExtResource("15_qqsy6")]
+cheeseTimer = 0.5
+
+[node name="Node3D" type="Node3D" parent="YarnSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -2)
+
+[node name="Node3D13" type="Node3D" parent="YarnSpawner"]
+transform = Transform3D(0.684485, 0, 0, 0, 1, 0, 0, 0, -0.0737108, -7.6196, 3, -7.48076)
+
+[node name="Node3D14" type="Node3D" parent="YarnSpawner"]
+transform = Transform3D(0.684485, 0, 0, 0, 1, 0, 0, 0, -0.0737108, -22.4578, 3, -10.9564)
+
+[node name="Node3D25" type="Node3D" parent="YarnSpawner"]
+transform = Transform3D(0.684485, 0, 0, 0, 1, 0, 0, 0, -0.0737108, -29.1868, 3, 0.955873)
+
+[node name="Node3D26" type="Node3D" parent="YarnSpawner"]
+transform = Transform3D(0.684485, 0, 0, 0, 1, 0, 0, 0, -0.0737108, -26.277, 3, 8.50333)
+
+[node name="Node3D27" type="Node3D" parent="YarnSpawner"]
+transform = Transform3D(0.684485, 0, 0, 0, 1, 0, 0, 0, -0.0737108, -27.641, 3.40721, 4.77507)
+
+[node name="Node3D28" type="Node3D" parent="YarnSpawner"]
+transform = Transform3D(0.684485, 0, 0, 0, 1, 0, 0, 0, -0.0737108, -18.2748, 3.40721, 5.1388)
+
+[node name="Node3D29" type="Node3D" parent="YarnSpawner"]
+transform = Transform3D(0.684485, 0, 0, 0, 1, 0, 0, 0, -0.0737108, -9.72712, 3.40721, 0.319342)
+
+[node name="Node3D30" type="Node3D" parent="YarnSpawner"]
+transform = Transform3D(0.684485, 0, 0, 0, 1, 0, 0, 0, -0.0737108, -18.2748, 3.40721, 1.41054)
+
+[node name="Node3D15" type="Node3D" parent="YarnSpawner"]
+transform = Transform3D(0.684485, 0, 0, 0, 1, 0, 0, 0, -0.0737108, -28.6737, 4.62833, -7.88179)
+
+[node name="Node3D16" type="Node3D" parent="YarnSpawner"]
+transform = Transform3D(0.684485, 0, 0, 0, 1, 0, 0, 0, -0.0737108, -11.5631, 4.62833, -11.4911)
+
+[node name="Node3D17" type="Node3D" parent="YarnSpawner"]
+transform = Transform3D(0.684485, 0, 0, 0, 1, 0, 0, 0, -0.0737108, -2.00515, 4.62833, -17.2392)
+
+[node name="Node3D18" type="Node3D" parent="YarnSpawner"]
+transform = Transform3D(0.684485, 0, 0, 0, 1, 0, 0, 0, -0.0737108, 10.4268, 5.29671, -9.48592)
+
+[node name="Node3D19" type="Node3D" parent="YarnSpawner"]
+transform = Transform3D(0.684485, 0, 0, 0, 1, 0, 0, 0, -0.0737108, 10.4268, 5.29671, 7.02321)
+
+[node name="Node3D20" type="Node3D" parent="YarnSpawner"]
+transform = Transform3D(0.684485, 0, 0, 0, 1, 0, 0, 0, -0.0737108, 10.4268, 5.29671, 18.9205)
+
+[node name="Node3D22" type="Node3D" parent="YarnSpawner"]
+transform = Transform3D(0.684485, 0, 0, 0, 1, 0, 0, 0, -0.0737108, 32.2508, 5.29671, 14.3738)
+
+[node name="Node3D23" type="Node3D" parent="YarnSpawner"]
+transform = Transform3D(0.684485, 0, 0, 0, 1, 0, 0, 0, -0.0737108, -35.7672, 5.29671, -13.7245)
+
+[node name="Node3D24" type="Node3D" parent="YarnSpawner"]
+transform = Transform3D(0.684485, 0, 0, 0, 1, 0, 0, 0, -0.0737108, -38.8589, 5.29671, -11.3603)
+
+[node name="Node3D21" type="Node3D" parent="YarnSpawner"]
+transform = Transform3D(0.684485, 0, 0, 0, 1, 0, 0, 0, -0.0737108, 12.4536, 11.9348, -14.9067)
+
+[node name="Node3D2" type="Node3D" parent="YarnSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 3, 16)
+
+[node name="Node3D3" type="Node3D" parent="YarnSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.0928, 3, 9.54375)
+
+[node name="Node3D4" type="Node3D" parent="YarnSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.2881, 3, -14.6445)
+
+[node name="Node3D6" type="Node3D" parent="YarnSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.44857, 3, -7.09702)
+
+[node name="Node3D11" type="Node3D" parent="YarnSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.93314, 3, 17.522)
+
+[node name="Node3D12" type="Node3D" parent="YarnSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.221668, 3, 15.5426)
+
+[node name="Node3D7" type="Node3D" parent="YarnSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0003, 3, -18.009)
+
+[node name="Node3D8" type="Node3D" parent="YarnSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.1842, 3.90933, -13.7351)
+
+[node name="Node3D10" type="Node3D" parent="YarnSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.1842, 3.90933, -15.3356)
+
+[node name="Node3D9" type="Node3D" parent="YarnSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.6354, 3.90933, -13.7351)
+
+[node name="Node3D5" type="Node3D" parent="YarnSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.4719, 14.4576, -0.277035)
 
 [connection signal="timeout" from="Timer/Timer" to="." method="_on_timer_timeout"]

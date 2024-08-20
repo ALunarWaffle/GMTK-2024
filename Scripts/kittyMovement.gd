@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 @onready var mesh = $Body
 @onready var ani = $AnimationPlayer
+@onready var tracker = get_node("../ScoreTracker")
 
 @export var SPEED = 7.0
 @export var JUMP_VELOCITY = 8
@@ -82,3 +83,11 @@ func save_to_file(content):
 	#writes to user://, which will store in cache for html
 	var file = FileAccess.open("user://kitty_data.json", FileAccess.WRITE)
 	file.store_string(JSON.stringify(content))
+
+
+func _on_area_3d_area_entered(area: Area3D) -> void:
+	print(area.get_collision_layer())
+	if (area.get_collision_layer() == 9):
+		var cheese = area.get_node("..")
+		cheese.queue_free()
+		tracker.update_score(1000)

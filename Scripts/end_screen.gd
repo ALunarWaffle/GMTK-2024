@@ -12,8 +12,13 @@ func _process(delta):
 
 
 func _on_start_pressed():
-	get_tree().change_scene_to_file("res://Scenes/kitty_playmat.tscn")
+	get_tree().change_scene_to_file("res://Scenes/mouse_playmat.tscn")
 
 
 func _on_quit_pressed():
-	get_tree().quit()
+	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
+
+
+
+func _on_quit_2_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/kitty_playmat.tscn")

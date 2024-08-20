@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://usohdpuvqtrk"]
+[gd_scene load_steps=27 format=4 uid="uid://usohdpuvqtrk"]
 
 [ext_resource type="Script" path="res://Scripts/kittyMovement.gd" id="1_lckaq"]
 [ext_resource type="Script" path="res://Scripts/hitbox.gd" id="2_yuybr"]
@@ -6,7 +6,7 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7tn7d"]
 height = 0.1
-radius = 0.75
+radius = 1.25
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2roum"]
 
@@ -338,6 +338,9 @@ _data = {
 "swipe": SubResource("Animation_lh3dr")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_w60l4"]
+size = Vector3(4.5, 3, 3)
+
 [node name="KittyBody3D" type="CharacterBody3D"]
 script = ExtResource("1_lckaq")
 
@@ -360,7 +363,7 @@ mesh = SubResource("ArrayMesh_qs65j")
 skeleton = NodePath("")
 
 [node name="ArmCenter" type="Node3D" parent="Body"]
-transform = Transform3D(4.99298, -0.321226, 0.17879, 0.326732, 4.90884, -2.73219, 1.86401e-08, 3.2195, 4.18368, -2.08136, 2.79993, 2.85678)
+transform = Transform3D(4.99298, -0.321226, 0.17879, 0.326732, 4.90884, -2.73219, -2.23681e-07, 3.2195, 4.18368, -2.08136, 2.79993, 2.85678)
 
 [node name="FRLeg" type="MeshInstance3D" parent="Body/ArmCenter"]
 transform = Transform3D(0.193602, -0.0132132, 0.0484107, -0.0132132, 0.172711, 0.0999815, -0.0484107, -0.0999814, 0.166313, 0.322333, -0.709232, -0.242071)
@@ -406,3 +409,11 @@ skeleton = NodePath("")
 libraries = {
 "": SubResource("AnimationLibrary_g3p54")
 }
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20191, 0)
+shape = SubResource("BoxShape3D_w60l4")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

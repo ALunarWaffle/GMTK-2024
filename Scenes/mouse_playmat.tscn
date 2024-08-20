@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://jp7bjh830n08"]
+[gd_scene load_steps=22 format=3 uid="uid://jp7bjh830n08"]
 
 [ext_resource type="Script" path="res://Scripts/mouse_playmat.gd" id="1_jn27u"]
 [ext_resource type="PackedScene" uid="uid://cl3yil7hlr2ta" path="res://Scenes/ai_kitty.tscn" id="1_rbdqc"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://Scripts/timer.gd" id="12_gbbp3"]
 [ext_resource type="Script" path="res://Scripts/score_tracker.gd" id="12_j7cqt"]
 [ext_resource type="PackedScene" uid="uid://bvn43hdm1l6en" path="res://Scenes/Buildings/Construction/cotr3.tscn" id="12_knwxa"]
+[ext_resource type="PackedScene" uid="uid://cbm2t1xbtw0it" path="res://Scenes/cheese_spawner.tscn" id="16_q7wo3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gvt66"]
 sky_top_color = Color(0.3678, 0.729093, 0.977665, 1)
@@ -520,7 +521,8 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 4.3
 shape = SubResource("BoxShape3D_y1hkf")
 
 [node name="MouseBody3D" parent="." instance=ExtResource("2_nwv8f")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 32.2445, 0.5, 11.5139)
+transform = Transform3D(0.0666337, 0, 0.074565, 0, 0.1, 0, -0.074565, 0, 0.0666337, 32.1448, 0.708678, 14.6881)
+SPEED = 2.5
 
 [node name="Timer" type="Control" parent="MouseBody3D"]
 layout_mode = 3
@@ -567,5 +569,135 @@ transform = Transform3D(-1.74846e-07, 0, 6, 0, 3, 0, -4, 0, -2.62268e-07, 0, 0.5
 
 [node name="ScoreTracker" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -22)
+
+[node name="CheeseSpawner" parent="." instance=ExtResource("16_q7wo3")]
+cheeseOdds = 1
+cheeseTimer = 0.1
+
+[node name="Node3D" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.2621, 1.1318, 12.8339)
+
+[node name="Node3D2" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.2055, 1.1318, 1.7985)
+
+[node name="Node3D3" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.3914, 1.1318, -4.67051)
+
+[node name="Node3D4" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.571442, 1.1318, -3.75724)
+
+[node name="Node3D5" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0104, 1.1318, -6.34485)
+
+[node name="Node3D6" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0971, 1.1318, 6.59318)
+
+[node name="Node3D7" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.5963, 1.1318, 4.94707)
+
+[node name="Node3D8" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.5963, 1.1318, -6.20895)
+
+[node name="Node3D9" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.4043, 1.1318, -6.20895)
+
+[node name="Node3D10" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.0437, 2.43181, 4.81137)
+
+[node name="Node3D11" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.4798, 2.26986, -0.433701)
+
+[node name="Node3D12" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.3565, 0.896573, -5.87505)
+
+[node name="Node3D13" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.9961, 0.896573, 16.4063)
+
+[node name="Node3D14" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.2966, 0.896573, 15.8737)
+
+[node name="Node3D15" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.11154, 0.896573, 11.7902)
+
+[node name="Node3D16" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.48849, 0.896573, 15.8737)
+
+[node name="Node3D17" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9452, 0.896573, 13.033)
+
+[node name="Node3D18" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.2425, 0.896573, 15.341)
+
+[node name="Node3D19" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.9656, 0.896573, 7.88434)
+
+[node name="Node3D20" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.3859, 0.896573, 0.516407)
+
+[node name="Node3D21" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.9185, 0.896573, -4.80981)
+
+[node name="Node3D22" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.4094, 0.896573, -11.6451)
+
+[node name="Node3D23" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.326, 0.896573, -19.1018)
+
+[node name="Node3D24" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.4308, 0.896573, -19.3681)
+
+[node name="Node3D25" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.31096, 0.896573, -14.9296)
+
+[node name="Node3D26" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.20564, 0.896573, -19.2794)
+
+[node name="Node3D27" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6805, 1.72623, -16.7938)
+
+[node name="Node3D28" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4137, 0.727037, -9.44339)
+
+[node name="Node3D29" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6859, 0.727037, 4.16845)
+
+[node name="Node3D30" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4137, 0.727037, 16.2376)
+
+[node name="Node3D31" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5952, 0.727037, 18.8692)
+
+[node name="Node3D32" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.552, 0.727037, -13.9807)
+
+[node name="Node3D33" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5072, 0.873327, -5.2691)
+
+[node name="Node3D34" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.152, 2.42641, -1.055)
+
+[node name="Node3D35" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.9471, 10.8599, -1.31855)
+
+[node name="Node3D36" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3619, 2.86748, -1.31855)
+
+[node name="Node3D37" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.6351, 2.86748, 4.77822)
+
+[node name="Node3D38" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4825, 5.27544, 6.85233)
+
+[node name="Node3D39" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6916, 5.27544, -5.8335)
+
+[node name="Node3D40" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4825, 5.27544, 18.7714)
+
+[node name="Node3D41" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.6616, 10.991, 11.4345)
+
+[node name="Node3D42" type="Node3D" parent="CheeseSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.6984, 10.991, 0.287472)
 
 [connection signal="timeout" from="MouseBody3D/Timer/Timer" to="." method="_on_timer_timeout"]

@@ -15,4 +15,5 @@ func _process(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	kitty.stop_recording()
+	$ScoreTracker.save_score()
 	get_tree().change_scene_to_file("res://Scenes/mouse_playmat.tscn")

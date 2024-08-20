@@ -6,6 +6,8 @@ extends CharacterBody3D
 @export var gravity = 20
 @export var hp = 1
 
+@onready var tracker = $ScoreTracker
+
 #mouse focus on game in desktop copy
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -57,4 +59,12 @@ func take_damage(damage):
 		death()
 
 func death():
-	pass
+	get_tree().change_scene_to_file("res://Scenes/end_screen.tscn")
+
+
+
+func _on_area_3d_area_entered(area: Area3D) -> void:
+	if (area.get_collision_layer() == 5):
+		var cheese = area.get_node("..")
+		cheese.queue_free()
+		tracker.update_score(1000)

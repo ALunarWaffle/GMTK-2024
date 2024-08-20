@@ -1,16 +1,54 @@
-[gd_scene load_steps=3 format=3 uid="uid://b87gf8qjhe40a"]
+[gd_scene load_steps=5 format=3 uid="uid://b87gf8qjhe40a"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_4wxy2"]
-size = Vector3(0.3, 0.2, 0.45)
+[sub_resource type="GDScript" id="GDScript_kujne"]
+script/source = "extends CharacterBody3D
 
-[sub_resource type="PrismMesh" id="PrismMesh_tx83a"]
+var gravity = 8
 
-[node name="Cheese" type="Area3D"]
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
-shape = SubResource("BoxShape3D_4wxy2")
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+func _physics_process(delta):
+	#print(\"Test\")
+	if not is_on_floor():
+		#print(\"Testing\")
+		velocity.y -= gravity * delta
+		
+	move_and_slide()
+"
+
+[sub_resource type="PrismMesh" id="PrismMesh_j6tm1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1wrcf"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g8h5w"]
+size = Vector3(0.3, 0.2, 0.4)
+
+[node name="CharacterBody3D" type="CharacterBody3D" groups=["Cheese"]]
+collision_layer = 5
+collision_mask = 5
+script = SubResource("GDScript_kujne")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.2, 0, 0, 0, -1.31134e-08, -0.1, 0, 0.3, -4.37114e-09, 0, 0.05, 0)
-mesh = SubResource("PrismMesh_tx83a")
+mesh = SubResource("PrismMesh_j6tm1")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0529398, 0)
+shape = SubResource("BoxShape3D_1wrcf")
+
+[node name="Area3D" type="Area3D" parent="." groups=["Cheese"]]
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0541148, 0)
+shape = SubResource("BoxShape3D_g8h5w")
