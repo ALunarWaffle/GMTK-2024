@@ -1,8 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://vhv7lmaxi3ts"]
+[gd_scene load_steps=20 format=3 uid="uid://vhv7lmaxi3ts"]
 
+[ext_resource type="Script" path="res://Scenes/kitty_playmat.gd" id="1_kas87"]
 [ext_resource type="PackedScene" uid="uid://usohdpuvqtrk" path="res://Scenes/kitty.tscn" id="2_otmkr"]
 [ext_resource type="PackedScene" uid="uid://bpa42ftyw1ye2" path="res://Scenes/VillageHouse.tscn" id="3_27jts"]
-[ext_resource type="PackedScene" uid="uid://tqqalqcpwhhk" path="res://Scenes/building.tscn" id="3_petix"]
 [ext_resource type="PackedScene" uid="uid://ecntucxd7j52" path="res://Scenes/Buildings/Suburbs/suburb1.tscn" id="4_3b708"]
 [ext_resource type="PackedScene" uid="uid://cerd8gw65gs6w" path="res://Scenes/Buildings/Suburbs/suburb2.tscn" id="5_l6i7i"]
 [ext_resource type="PackedScene" uid="uid://cpnnnasxgperw" path="res://Scenes/Buildings/Suburbs/suburb3.tscn" id="6_v41iy"]
@@ -11,92 +11,556 @@
 [ext_resource type="PackedScene" uid="uid://c3unhrdhft307" path="res://Scenes/ScoreTracker.tscn" id="8_qv0hq"]
 [ext_resource type="PackedScene" uid="uid://fn0vhsi0owu7" path="res://Scenes/Buildings/Construction/cotr2.tscn" id="9_ct2nd"]
 [ext_resource type="PackedScene" uid="uid://bvn43hdm1l6en" path="res://Scenes/Buildings/Construction/cotr3.tscn" id="10_rct3l"]
+[ext_resource type="PackedScene" uid="uid://40bfug0lns8" path="res://Scenes/exit.tscn" id="11_bmy4r"]
+[ext_resource type="Script" path="res://Scripts/timer.gd" id="13_5isb7"]
+[ext_resource type="PackedScene" uid="uid://b1h4n7jlbcvxy" path="res://Scenes/Models/carpet.glb" id="14_6cwr8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hqfd7"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+sky_top_color = Color(0.3678, 0.729093, 0.977665, 1)
+sky_horizon_color = Color(0.6457, 0.655207, 0.670218, 1)
+sky_curve = 0.395852
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[sub_resource type="Sky" id="Sky_6gdg8"]
+[sub_resource type="Sky" id="Sky_f16uu"]
 sky_material = SubResource("ProceduralSkyMaterial_hqfd7")
 
 [sub_resource type="Environment" id="Environment_i15ps"]
 background_mode = 2
-sky = SubResource("Sky_6gdg8")
+sky = SubResource("Sky_f16uu")
+ambient_light_color = Color(0.38556, 0.57763, 1, 1)
 tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mkgg0"]
 albedo_color = Color(0.126697, 0.364289, 2.40654e-07, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_s1u3a"]
+size = Vector3(150, 44, 1)
+
 [node name="Playmat" type="Node3D"]
+script = ExtResource("1_kas87")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_i15ps")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+transform = Transform3D(-0.540198, -0.660905, -0.52095, -0.676891, -0.026565, 0.735605, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_color = Color(0.981387, 0.982675, 0.982619, 1)
+light_energy = 0.5
 shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -0.0323181, 14.6513, 25.6798)
+transform = Transform3D(1, 0, 0, 0, 0.584915, 0.811094, 0, -0.811094, 0.584915, 1.443, 27.103, 23.998)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(126.713, 0, 0, 0, 1, 0, 0, 0, 45.1593, 0, 0, 0)
+visible = false
 use_collision = true
 collision_layer = 5
 material = SubResource("StandardMaterial3D_mkgg0")
 
 [node name="KittyBody3D" parent="." instance=ExtResource("2_otmkr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.4278, 0.5, 2.4937)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -38.291, 0.588, -0.925)
 
 [node name="Buildings" type="Node3D" parent="."]
 
-[node name="Building" parent="Buildings" instance=ExtResource("3_petix")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -26.9835, 1.4859, -2.97517)
-
-[node name="Building2" parent="Buildings" instance=ExtResource("3_petix")]
-transform = Transform3D(-1.31134e-08, 0, -0.3, 0, 0.3, 0, 0.3, 0, -1.31134e-08, -9.76601, 1.5007, -5.95034)
-
-[node name="Building3" parent="Buildings" instance=ExtResource("3_petix")]
-transform = Transform3D(-1.31134e-08, 0, 0.3, 0, 0.3, 0, -0.3, 0, -1.31134e-08, 3.38537, 1.22209, 9.00988)
-
-[node name="Building4" parent="Buildings" instance=ExtResource("3_petix")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 3.38537, 1.22209, -3.90462)
-
-[node name="Building5" parent="Buildings" instance=ExtResource("3_petix")]
-transform = Transform3D(-0.3, 0, 4.52987e-08, 0, 0.3, 0, -4.52987e-08, 0, -0.3, 22.5379, 1.22209, -3.90462)
-
-[node name="Building6" parent="Buildings" instance=ExtResource("3_petix")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 22.5379, 1.22209, 4.98023)
-
 [node name="Village" type="Node3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.7344, 0, 0)
 
 [node name="VillageHouse" parent="Buildings/Village" instance=ExtResource("3_27jts")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 12.4379, 0.248151, -0.760347)
+transform = Transform3D(0.0873959, 0, -0.0486, 0, 0.1, 0, 0.0486, 0, 0.0873959, 12.4379, 0.248151, -0.760347)
+health = 6
+minDamage = 1
+value = 100
+
+[node name="VillageHouse2" parent="Buildings/Village" instance=ExtResource("3_27jts")]
+transform = Transform3D(0.0446541, 0, 0.0894763, 0, 0.1, 0, -0.0894763, 0, 0.0446541, 8.98282, 0.248151, -7.85691)
+health = 6
+minDamage = 1
+value = 100
+
+[node name="VillageHouse3" parent="Buildings/Village" instance=ExtResource("3_27jts")]
+transform = Transform3D(0.119453, 0, -0.0114452, 0, 0.12, 0, 0.0114452, 0, 0.119453, 4.33436, 0.248151, -5.0678)
+health = 6
+minDamage = 1
+value = 100
+
+[node name="VillageHouse8" parent="Buildings/Village" instance=ExtResource("3_27jts")]
+transform = Transform3D(-0.0841375, 0, 0.0855622, 0, 0.12, 0, -0.0855622, 0, -0.0841375, -1.35765, 0.248151, -8.18603)
+health = 6
+minDamage = 1
+value = 100
+
+[node name="VillageHouse20" parent="Buildings/Village" instance=ExtResource("3_27jts")]
+transform = Transform3D(0.10253, 0, 0.0623512, 0, 0.12, 0, -0.0623512, 0, 0.10253, 1.11713, 0.248151, -18.3327)
+health = 6
+minDamage = 1
+value = 100
+
+[node name="VillageHouse4" parent="Buildings/Village" instance=ExtResource("3_27jts")]
+transform = Transform3D(0.0995441, 0, -0.00953767, 0, 0.1, 0, 0.00953767, 0, 0.0995441, 4.33436, 0.248151, 4.73834)
+health = 6
+minDamage = 1
+value = 100
+
+[node name="VillageHouse5" parent="Buildings/Village" instance=ExtResource("3_27jts")]
+transform = Transform3D(-0.0595623, 0, -0.104175, 0, 0.12, 0, 0.104175, 0, -0.0595623, 10.1079, 0.248151, 4.73834)
+health = 6
+minDamage = 1
+value = 100
+
+[node name="VillageHouse6" parent="Buildings/Village" instance=ExtResource("3_27jts")]
+transform = Transform3D(0.0817044, 0, -0.0576575, 0, 0.1, 0, 0.0576575, 0, 0.0817044, 10.1079, 0.248151, 11.2123)
+health = 6
+minDamage = 1
+value = 100
+
+[node name="VillageHouse7" parent="Buildings/Village" instance=ExtResource("3_27jts")]
+transform = Transform3D(0.0328288, 0, 0.115422, 0, 0.12, 0, -0.115422, 0, 0.0328288, 6.33913, 0.248151, 11.2123)
+health = 6
+minDamage = 1
+value = 100
+
+[node name="VillageHouse9" parent="Buildings/Village" instance=ExtResource("3_27jts")]
+transform = Transform3D(0.0648014, 0, -0.0761629, 0, 0.1, 0, 0.0761629, 0, 0.0648014, 15.7728, 0.248151, 17.0599)
+health = 6
+minDamage = 1
+value = 100
+
+[node name="VillageHouse10" parent="Buildings/Village" instance=ExtResource("3_27jts")]
+transform = Transform3D(0.119453, 0, -0.0114452, 0, 0.12, 0, 0.0114452, 0, 0.119453, 15.7728, 0.248151, -7.70774)
+health = 6
+minDamage = 1
+value = 100
+
+[node name="VillageHouse11" parent="Buildings/Village" instance=ExtResource("3_27jts")]
+transform = Transform3D(0.0995441, 0, -0.00953767, 0, 0.1, 0, 0.00953767, 0, 0.0995441, 5.39766, 0.248151, -13.4376)
+health = 6
+minDamage = 1
+value = 100
+
+[node name="VillageHouse13" parent="Buildings/Village" instance=ExtResource("3_27jts")]
+transform = Transform3D(0.0980505, 0, 0.0196494, 0, 0.1, 0, -0.0196494, 0, 0.0980505, 19.5903, 0.248151, -1.65726)
+health = 6
+minDamage = 1
+value = 100
+
+[node name="VillageHouse15" parent="Buildings/Village" instance=ExtResource("3_27jts")]
+transform = Transform3D(0.0794033, 0, -0.0607875, 0, 0.1, 0, 0.0607875, 0, 0.0794033, 19.5903, 0.248151, -13.3901)
+health = 6
+minDamage = 1
+value = 100
+
+[node name="VillageHouse17" parent="Buildings/Village" instance=ExtResource("3_27jts")]
+transform = Transform3D(0.0827179, 0, -0.0561939, 0, 0.1, 0, 0.0561939, 0, 0.0827179, 35.7515, 0.248151, -17.0264)
+health = 6
+minDamage = 1
+value = 100
+
+[node name="VillageHouse18" parent="Buildings/Village" instance=ExtResource("3_27jts")]
+transform = Transform3D(0.0958452, 0, 0.0285253, 0, 0.1, 0, -0.0285253, 0, 0.0958452, 35.7515, 0.248151, 2.84513)
+health = 6
+minDamage = 1
+value = 100
+
+[node name="VillageHouse19" parent="Buildings/Village" instance=ExtResource("3_27jts")]
+transform = Transform3D(0.0638821, 0, 0.0769355, 0, 0.1, 0, -0.0769355, 0, 0.0638821, 69.8134, 0.248151, 14.6785)
+health = 6
+minDamage = 1
+value = 100
+
+[node name="VillageHouse16" parent="Buildings/Village" instance=ExtResource("3_27jts")]
+transform = Transform3D(0.0980505, 0, 0.0196494, 0, 0.1, 0, -0.0196494, 0, 0.0980505, 12.6345, 0.248151, -18.2013)
+health = 6
+minDamage = 1
+value = 100
+
+[node name="VillageHouse14" parent="Buildings/Village" instance=ExtResource("3_27jts")]
+transform = Transform3D(0.0993264, 0, 0.0115873, 0, 0.1, 0, -0.0115873, 0, 0.0993264, 20.5961, 0.248151, 9.32133)
+health = 6
+minDamage = 1
+value = 100
+
+[node name="VillageHouse12" parent="Buildings/Village" instance=ExtResource("3_27jts")]
+transform = Transform3D(0.11294, 0, -0.040552, 0, 0.12, 0, 0.040552, 0, 0.11294, 11.4467, 0.248151, -13.4376)
+health = 6
+minDamage = 1
+value = 100
+
+[node name="Suburb4" parent="Buildings/Village" instance=ExtResource("7_pjuqa")]
+transform = Transform3D(0.117466, 0, -0.0932829, 0, 0.15, 0, 0.0932829, 0, 0.117466, 5.6725, 0.473521, 0.481646)
+health = 1
+minDamage = 1
+value = 25
+
+[node name="Suburb10" parent="Buildings/Village" instance=ExtResource("7_pjuqa")]
+transform = Transform3D(-0.145681, 0, -0.0357368, 0, 0.15, 0, 0.0357368, 0, -0.145681, 18.2876, 0.473521, -6.59254)
+health = 1
+minDamage = 1
+value = 25
+
+[node name="Suburb11" parent="Buildings/Village" instance=ExtResource("7_pjuqa")]
+transform = Transform3D(0.0608933, 0, -0.137084, 0, 0.15, 0, 0.137084, 0, 0.0608933, 22.4179, 0.473521, -9.91971)
+health = 1
+minDamage = 1
+value = 25
+
+[node name="Suburb5" parent="Buildings/Village" instance=ExtResource("7_pjuqa")]
+transform = Transform3D(0.0637721, 0, -0.135769, 0, 0.15, 0, 0.135769, 0, 0.0637721, 8.00517, 0.473521, 7.48201)
+health = 1
+minDamage = 1
+value = 25
+
+[node name="Suburb6" parent="Buildings/Village" instance=ExtResource("7_pjuqa")]
+transform = Transform3D(0.139581, 0, -0.0549289, 0, 0.15, 0, 0.0549289, 0, 0.139581, 13.7471, 0.473521, 7.48201)
+health = 1
+minDamage = 1
+value = 25
+
+[node name="Suburb7" parent="Buildings/Village" instance=ExtResource("7_pjuqa")]
+transform = Transform3D(-0.00896652, 0, -0.149732, 0, 0.15, 0, 0.149732, 0, -0.00896652, 13.7471, 0.473521, 3.13609)
+health = 1
+minDamage = 1
+value = 25
+
+[node name="Suburb8" parent="Buildings/Village" instance=ExtResource("7_pjuqa")]
+transform = Transform3D(0.0180179, 0, -0.148914, 0, 0.15, 0, 0.148914, 0, 0.0180179, 13.7471, 0.473521, -4.05338)
+health = 1
+minDamage = 1
+value = 25
+
+[node name="Suburb9" parent="Buildings/Village" instance=ExtResource("7_pjuqa")]
+transform = Transform3D(0.14031, 0, -0.0530384, 0, 0.15, 0, 0.0530384, 0, 0.14031, 9.09303, 0.473521, -4.05338)
+health = 1
+minDamage = 1
+value = 25
 
 [node name="Suburbs" type="Node3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2538, 0, 0)
 
 [node name="Suburb1" parent="Buildings/Suburbs" instance=ExtResource("4_3b708")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -16.5941, 0.811895, 0)
+transform = Transform3D(0.245986, 0, -0.17173, 0, 0.3, 0, 0.17173, 0, 0.245986, -30.1451, 0.811895, 0)
+value = 250
+
+[node name="Suburb5" parent="Buildings/Suburbs" instance=ExtResource("4_3b708")]
+transform = Transform3D(0.238076, 0, -0.182537, 0, 0.3, 0, 0.182537, 0, 0.238076, -39.4036, 0.811895, 0)
+value = 250
+
+[node name="Suburb6" parent="Buildings/Suburbs" instance=ExtResource("4_3b708")]
+transform = Transform3D(0.196181, 0, -0.226965, 0, 0.3, 0, 0.226965, 0, 0.196181, -46.0028, 0.811895, 13.123)
+value = 250
+
+[node name="Suburb7" parent="Buildings/Suburbs" instance=ExtResource("4_3b708")]
+transform = Transform3D(0.269293, 0, 0.132217, 0, 0.3, 0, -0.132217, 0, 0.269293, -38.5955, 0.811895, 17.3653)
+value = 250
+
+[node name="Suburb8" parent="Buildings/Suburbs" instance=ExtResource("4_3b708")]
+transform = Transform3D(0.215332, 0, -0.208883, 0, 0.3, 0, 0.208883, 0, 0.215332, -28.5621, 0.811895, 17.3653)
+value = 250
+
+[node name="Suburb9" parent="Buildings/Suburbs" instance=ExtResource("4_3b708")]
+transform = Transform3D(0.230401, 0, 0.192133, 0, 0.3, 0, -0.192133, 0, 0.230401, -28.5621, 0.811895, 8.94799)
+value = 250
+
+[node name="Suburb10" parent="Buildings/Suburbs" instance=ExtResource("4_3b708")]
+transform = Transform3D(0.270624, 0, 0.12947, 0, 0.3, 0, -0.12947, 0, 0.270624, -35.0266, 0.811895, -4.92373)
+value = 250
+
+[node name="Suburb11" parent="Buildings/Suburbs" instance=ExtResource("4_3b708")]
+transform = Transform3D(0.270798, 0, 0.129106, 0, 0.3, 0, -0.129106, 0, 0.270798, -35.0266, 0.811895, 5.91776)
+value = 250
+
+[node name="Suburb12" parent="Buildings/Suburbs" instance=ExtResource("4_3b708")]
+transform = Transform3D(0.190597, 0, -0.231674, 0, 0.3, 0, 0.231674, 0, 0.190597, -23.377, 0.811895, -10.3108)
+value = 250
+
+[node name="Suburb13" parent="Buildings/Suburbs" instance=ExtResource("4_3b708")]
+transform = Transform3D(-0.264044, 0, 0.142411, 0, 0.3, 0, -0.142411, 0, -0.264044, -29.3028, 0.811895, -10.3108)
+value = 250
+
+[node name="Suburb14" parent="Buildings/Suburbs" instance=ExtResource("4_3b708")]
+transform = Transform3D(0.285112, 0, -0.0933323, 0, 0.3, 0, 0.0933323, 0, 0.285112, -34.4205, 0.811895, -17.1793)
+value = 250
 
 [node name="Suburb2" parent="Buildings/Suburbs" instance=ExtResource("5_l6i7i")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -21.0941, 0.894376, 0)
+transform = Transform3D(0.270953, -5.62915e-09, -0.12878, 5.62915e-09, 0.3, -1.26967e-09, 0.12878, -1.26967e-09, 0.270953, -21.0146, 0.894376, 0.0833244)
+value = 250
+
+[node name="Suburb31" parent="Buildings/Suburbs" instance=ExtResource("5_l6i7i")]
+transform = Transform3D(0.167319, 0, -0.249007, 0, 0.3, 0, 0.249007, 0, 0.167319, -35.6944, 0.894376, -11.7009)
+value = 250
+
+[node name="Suburb32" parent="Buildings/Suburbs" instance=ExtResource("5_l6i7i")]
+transform = Transform3D(0.271122, 0, -0.128425, 0, 0.3, 0, 0.128425, 0, 0.271122, -31.6541, 0.894376, 12.2042)
+value = 250
+
+[node name="Suburb33" parent="Buildings/Suburbs" instance=ExtResource("5_l6i7i")]
+transform = Transform3D(0.28357, 0, 0.0979179, 0, 0.3, 0, -0.0979179, 0, 0.28357, -2.63123, 0.894376, 10.3188)
+value = 250
 
 [node name="Suburb3" parent="Buildings/Suburbs" instance=ExtResource("6_v41iy")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -22.2663, 0.279045, 4.42229)
+transform = Transform3D(0.258103, 0, -0.152915, 0, 0.3, 0, 0.152915, 0, 0.258103, -22.2663, 0.279045, 4.42229)
+health = 1
+minDamage = 1
+value = 250
+
+[node name="Suburb24" parent="Buildings/Suburbs" instance=ExtResource("6_v41iy")]
+transform = Transform3D(0.290266, 0, 0.0757981, 0, 0.3, 0, -0.0757981, 0, 0.290266, -38.9662, 0.279045, 4.42229)
+health = 1
+minDamage = 1
+value = 250
+
+[node name="Suburb25" parent="Buildings/Suburbs" instance=ExtResource("6_v41iy")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -46.5755, 0.279045, -15.2405)
+health = 1
+minDamage = 1
+value = 250
+
+[node name="Suburb26" parent="Buildings/Suburbs" instance=ExtResource("6_v41iy")]
+transform = Transform3D(0.28897, 0, 0.0806003, 0, 0.3, 0, -0.0806003, 0, 0.28897, -20.4482, 0.279045, -15.2405)
+health = 1
+minDamage = 1
+value = 250
+
+[node name="Suburb27" parent="Buildings/Suburbs" instance=ExtResource("6_v41iy")]
+transform = Transform3D(0.27291, 0, -0.124579, 0, 0.3, 0, 0.124579, 0, 0.27291, -20.4482, 0.279045, 15.9372)
+health = 1
+minDamage = 1
+value = 250
+
+[node name="Suburb28" parent="Buildings/Suburbs" instance=ExtResource("6_v41iy")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -26.2393, 0.279045, 11.3581)
+health = 1
+minDamage = 1
+value = 250
+
+[node name="Suburb29" parent="Buildings/Suburbs" instance=ExtResource("6_v41iy")]
+transform = Transform3D(0.28456, 0, -0.0950027, 0, 0.3, 0, 0.0950027, 0, 0.28456, 0.29207, 0.279045, 6.17309)
+health = 1
+minDamage = 1
+value = 250
+
+[node name="Suburb30" parent="Buildings/Suburbs" instance=ExtResource("6_v41iy")]
+transform = Transform3D(0.297513, 0, 0.0385452, 0, 0.3, 0, -0.0385452, 0, 0.297513, 7.02592, 0.279045, -3.793)
+health = 1
+minDamage = 1
+value = 250
 
 [node name="Suburb4" parent="Buildings/Suburbs" instance=ExtResource("7_pjuqa")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -30.5246, 0.473521, 5.08977)
+transform = Transform3D(0.274399, 0, -0.121265, 0, 0.3, 0, 0.121265, 0, 0.274399, -30.5246, 0.473521, 5.08977)
+value = 250
+
+[node name="Suburb15" parent="Buildings/Suburbs" instance=ExtResource("7_pjuqa")]
+transform = Transform3D(0.237987, 0, 0.182653, 0, 0.3, 0, -0.182653, 0, 0.237987, -42.5782, 0.473521, 5.08977)
+value = 250
+
+[node name="Suburb16" parent="Buildings/Suburbs" instance=ExtResource("7_pjuqa")]
+transform = Transform3D(-0.181588, 0, 0.238801, 0, 0.3, 0, -0.238801, 0, -0.181588, -36.5177, 0.473521, 12.699)
+value = 250
+
+[node name="Suburb17" parent="Buildings/Suburbs" instance=ExtResource("7_pjuqa")]
+transform = Transform3D(0.284057, 0, -0.0964963, 0, 0.3, 0, 0.0964963, 0, 0.284057, -20.3565, 0.473521, 12.699)
+value = 250
+
+[node name="Suburb18" parent="Buildings/Suburbs" instance=ExtResource("7_pjuqa")]
+transform = Transform3D(-0.0120552, 0, 0.299758, 0, 0.3, 0, -0.299758, 0, -0.0120552, -20.3565, 0.473521, 8.45669)
+value = 250
+
+[node name="Suburb19" parent="Buildings/Suburbs" instance=ExtResource("7_pjuqa")]
+transform = Transform3D(0.194384, 0, -0.228506, 0, 0.3, 0, 0.228506, 0, 0.194384, -20.3565, 0.473521, -4.87632)
+value = 250
+
+[node name="Suburb20" parent="Buildings/Suburbs" instance=ExtResource("7_pjuqa")]
+transform = Transform3D(0.138246, 0, 0.266248, 0, 0.3, 0, -0.266248, 0, 0.138246, -27.6964, 0.473521, -4.87632)
+value = 250
+
+[node name="Suburb21" parent="Buildings/Suburbs" instance=ExtResource("7_pjuqa")]
+transform = Transform3D(0.274196, 0, -0.121724, 0, 0.3, 0, 0.121724, 0, 0.274196, -5.34003, 0.473521, -5.07833)
+value = 250
+
+[node name="Suburb22" parent="Buildings/Suburbs" instance=ExtResource("7_pjuqa")]
+transform = Transform3D(0.199858, 0, 0.223733, 0, 0.3, 0, -0.223733, 0, 0.199858, -5.34003, 0.473521, 5.22445)
+value = 250
+
+[node name="Suburb23" parent="Buildings/Suburbs" instance=ExtResource("7_pjuqa")]
+transform = Transform3D(0.243414, 0, -0.175356, 0, 0.3, 0, 0.175356, 0, 0.243414, -34.2956, 0.473521, 0.174067)
+value = 250
 
 [node name="Construction" type="Node3D" parent="Buildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.8331, 0, 0)
 
 [node name="Cotr1" parent="Buildings/Construction" instance=ExtResource("8_6na3q")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -14.5704, 1.41938, 11.9521)
+transform = Transform3D(0.297117, 0, -0.0414927, 0, 0.3, 0, 0.0414927, 0, 0.297117, 0.756771, 1.41938, 11.9521)
+health = 25
+value = 1000
+
+[node name="Cotr4" parent="Buildings/Construction" instance=ExtResource("8_6na3q")]
+transform = Transform3D(0.281945, 0, -0.102503, 0, 0.3, 0, 0.102503, 0, 0.281945, 0.756771, 1.41938, -0.445796)
+health = 25
+value = 1000
+
+[node name="Cotr5" parent="Buildings/Construction" instance=ExtResource("8_6na3q")]
+transform = Transform3D(0.339804, 0, 0.0838663, 0, 0.35, 0, -0.0838663, 0, 0.339804, 11.0066, 1.41938, -0.445796)
+health = 25
+value = 1000
+
+[node name="Cotr6" parent="Buildings/Construction" instance=ExtResource("8_6na3q")]
+transform = Transform3D(-0.14454, 0, 0.262884, 0, 0.3, 0, -0.262884, 0, -0.14454, 11.0066, 1.41938, -9.26646)
+health = 25
+value = 1000
+
+[node name="Cotr7" parent="Buildings/Construction" instance=ExtResource("8_6na3q")]
+transform = Transform3D(0.12831, 0, -0.325633, 0, 0.35, 0, 0.325633, 0, 0.12831, -6.3391, 1.41938, -9.26646)
+health = 25
+value = 1000
+
+[node name="Cotr8" parent="Buildings/Construction" instance=ExtResource("8_6na3q")]
+transform = Transform3D(0.149288, 0, 0.260218, 0, 0.3, 0, -0.260218, 0, 0.149288, -13.251, 1.41938, -16.4668)
+health = 25
+value = 1000
 
 [node name="Cotr2" parent="Buildings/Construction" instance=ExtResource("9_ct2nd")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -21.09, -0.205537, 10.8241)
+transform = Transform3D(0.238908, 0, -0.181446, 0, 0.3, 0, 0.181446, 0, 0.238908, 6.48093, -0.205537, 6.27052)
+health = 15
+value = 500
+
+[node name="Cotr9" parent="Buildings/Construction" instance=ExtResource("9_ct2nd")]
+transform = Transform3D(0.313491, 0, 0.155639, 0, 0.35, 0, -0.155639, 0, 0.313491, -10.2975, -0.205537, 10.8241)
+health = 15
+value = 500
+
+[node name="Cotr10" parent="Buildings/Construction" instance=ExtResource("9_ct2nd")]
+transform = Transform3D(0.274479, 0, -0.121083, 0, 0.3, 0, 0.121083, 0, 0.274479, -10.2975, -0.205537, -1.62873)
+health = 15
+value = 500
+
+[node name="Cotr11" parent="Buildings/Construction" instance=ExtResource("9_ct2nd")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -0.189074, -0.205537, -7.78952)
+health = 15
+value = 500
 
 [node name="Cotr3" parent="Buildings/Construction" instance=ExtResource("10_rct3l")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -16.5089, 0.311567, 4.8405)
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -16.5089, 0.311567, 4.15574)
+health = 12
+minDamage = 1
+value = 150
+
+[node name="Cotr19" parent="Buildings/Construction" instance=ExtResource("10_rct3l")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -16.5089, 0.311567, 6.96949)
+health = 12
+minDamage = 1
+value = 150
+
+[node name="Cotr12" parent="Buildings/Construction" instance=ExtResource("10_rct3l")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -16.5089, 0.311567, 13.5999)
+health = 12
+minDamage = 1
+value = 150
+
+[node name="Cotr20" parent="Buildings/Construction" instance=ExtResource("10_rct3l")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -16.5089, 0.311567, 16.1713)
+health = 12
+minDamage = 1
+value = 150
+
+[node name="Cotr13" parent="Buildings/Construction" instance=ExtResource("10_rct3l")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -16.5089, 0.311567, -5.73879)
+health = 12
+minDamage = 1
+value = 150
+
+[node name="Cotr14" parent="Buildings/Construction" instance=ExtResource("10_rct3l")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -16.5089, 0.311567, 18.9764)
+health = 12
+minDamage = 1
+value = 150
+
+[node name="Cotr15" parent="Buildings/Construction" instance=ExtResource("10_rct3l")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -16.5089, 0.311567, 10.2722)
+health = 12
+minDamage = 1
+value = 150
+
+[node name="Cotr16" parent="Buildings/Construction" instance=ExtResource("10_rct3l")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -16.5089, 0.311567, 0.684189)
+health = 12
+minDamage = 1
+value = 150
+
+[node name="Cotr17" parent="Buildings/Construction" instance=ExtResource("10_rct3l")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -16.5089, 0.311567, -2.13303)
+health = 12
+minDamage = 1
+value = 150
+
+[node name="Cotr18" parent="Buildings/Construction" instance=ExtResource("10_rct3l")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -16.5089, 0.311567, -9.48052)
+health = 12
+minDamage = 1
+value = 150
 
 [node name="ScoreTracker" parent="." instance=ExtResource("8_qv0hq")]
+metadata/_edit_use_anchors_ = true
+
+[node name="Exit" parent="." instance=ExtResource("11_bmy4r")]
+transform = Transform3D(-0.199237, 0, 0.151065, 0, 0.250032, 0, -0.151065, 0, -0.199237, -39.1071, 0.604367, -13.6668)
+
+[node name="Invisible Walls" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="Invisible Walls"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 4.37114e-08, 0)
+shape = SubResource("BoxShape3D_s1u3a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Invisible Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -22)
+shape = SubResource("BoxShape3D_s1u3a")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Invisible Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -47, 10, -22)
+shape = SubResource("BoxShape3D_s1u3a")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Invisible Walls"]
+transform = Transform3D(-0.516668, 0, 0.856186, 0, 1, 0, -0.856186, 0, -0.516668, -58.5914, 10, -22)
+shape = SubResource("BoxShape3D_s1u3a")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Invisible Walls"]
+transform = Transform3D(0.554162, 0, 0.832409, 0, 1, 0, -0.832409, 0, 0.554162, 59.6908, 10, -22)
+shape = SubResource("BoxShape3D_s1u3a")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Invisible Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 52, 10, -22)
+shape = SubResource("BoxShape3D_s1u3a")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Invisible Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 22)
+shape = SubResource("BoxShape3D_s1u3a")
+
+[node name="Timer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("13_5isb7")
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="Timer"]
+process_callback = 0
+wait_time = 60.0
+one_shot = true
+
+[node name="Label" type="Label" parent="Timer"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 547.0
+offset_right = 590.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Time"
+metadata/_edit_use_anchors_ = true
+
+[node name="carpet" parent="." instance=ExtResource("14_6cwr8")]
+transform = Transform3D(-1.74846e-07, 0, 6, 0, 3, 0, -4, 0, -2.62268e-07, 0, 0.5, 0)
+
+[connection signal="timeout" from="Timer/Timer" to="." method="_on_timer_timeout"]

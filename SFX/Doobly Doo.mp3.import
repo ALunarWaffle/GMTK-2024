@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cmtctjich2jjo"
+path="res://.godot/imported/Doobly Doo.mp3-2cfa8f8556b097d4fccc1a7ff96b9f32.mp3str"
+
+[deps]
+
+source_file="res://SFX/Doobly Doo.mp3"
+dest_files=["res://.godot/imported/Doobly Doo.mp3-2cfa8f8556b097d4fccc1a7ff96b9f32.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

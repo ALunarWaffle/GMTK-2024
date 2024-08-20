@@ -12,5 +12,7 @@ func _process(delta):
 	pass
 
 func update_score(value):
+
+	
 	score += value
 	label.text = "Score: %s" % score

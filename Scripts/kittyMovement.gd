@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-@onready var mesh = $KittyMesh
+@onready var mesh = $Body
 @onready var ani = $AnimationPlayer
 
 @export var SPEED = 7.0
@@ -38,7 +38,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 
 	if Input.is_action_just_pressed("attack"):
-		ani.play("temp_swipe")
+		ani.play("swipe")
 		ani.queue("RESET")
 
 	# Get the input direction and handle the movement/deceleration.

@@ -4,6 +4,7 @@ extends CharacterBody3D
 @export var SPEED = 5.0
 @export var JUMP_VELOCITY = 4.5
 @export var gravity = 20
+@export var hp = 1
 
 #mouse focus on game in desktop copy
 func _ready():
@@ -15,7 +16,7 @@ func _input(event: InputEvent) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 @onready var camroot = $Swivel
-@onready var mesh = $MeshInstance3D
+@onready var mesh = $Mouse
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -38,7 +39,7 @@ func _physics_process(delta):
 		#rotates rendered character so they're pointing based on player input
 		#pi/2 added because input_dir works on an x/y 2d plane that's 90 deg off from x/z 3d plane
 		#similarly, 3d plane I think rotates differently, thus the negatives
-		mesh.rotation.y = -(input_dir.angle()+(PI/2)-camroot.rotation.y)
+		mesh.rotation.y = -(input_dir.angle()+(PI)-camroot.rotation.y)
 		
 		#moves character smoothly based on direction(s) input
 		velocity.x = direction.x * SPEED
@@ -49,3 +50,11 @@ func _physics_process(delta):
 	
 	#to prevent sticking to terrain
 	move_and_slide()
+
+func take_damage(damage):
+	hp -= damage
+	if (hp <=0):
+		death()
+
+func death():
+	pass

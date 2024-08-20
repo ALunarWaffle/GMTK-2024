@@ -11,6 +11,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_start_pressed() -> void:
+	$Click.play()
 	get_tree().change_scene_to_file("res://Scenes/kitty_playmat.tscn")
 
 

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://duvmg56yvgdfm"]
+
+[ext_resource type="AudioStream" uid="uid://b3gl6n05um8sb" path="res://SFX/197772__onteca__building_collapse02_close.wav" id="1_ihspv"]
+
+[node name="Boom" type="AudioStreamPlayer"]
+stream = ExtResource("1_ihspv")
+volume_db = -10.0
+autoplay = true

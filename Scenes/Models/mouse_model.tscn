@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdth6wpqsyxwa"]
+
+[ext_resource type="PackedScene" uid="uid://do3t2qvk074kp" path="res://Models/Characters/mouse.glb" id="1_5gnxi"]
+
+[node name="mouse" instance=ExtResource("1_5gnxi")]

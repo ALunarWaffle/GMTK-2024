@@ -36,4 +36,4 @@ func get_recording():
 		if (test[0] != null && test[0] != ""):
 			ani.play(test[0])
 		global_position = str_to_var("Vector3"+test[1])
-		global_rotation = str_to_var("Vector3"+test[2])
+		global_rotation = str_to_var("Vector3"+test[2])+Vector3(PI/2,0,0)

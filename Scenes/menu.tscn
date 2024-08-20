@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dgtkkfcufv7pj"]
+[gd_scene load_steps=4 format=3 uid="uid://dgtkkfcufv7pj"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_82n0n"]
+[ext_resource type="AudioStream" uid="uid://cmtctjich2jjo" path="res://SFX/Doobly Doo.mp3" id="2_3s0ue"]
+[ext_resource type="AudioStream" uid="uid://dj7v2g8cwflg2" path="res://SFX/684866__faircashew__mouse-squek.mp3" id="3_5qcr8"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -28,6 +30,15 @@ text = "Start"
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Quit"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_3s0ue")
+volume_db = -25.0
+autoplay = true
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_5qcr8")
+volume_db = -20.0
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
