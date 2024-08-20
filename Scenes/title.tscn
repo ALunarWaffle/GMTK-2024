@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://crddvsnspmtl6"]
+[gd_scene load_steps=45 format=4 uid="uid://crddvsnspmtl6"]
 
 [ext_resource type="Texture2D" uid="uid://bbhkfkw11oynh" path="res://Models/Characters/newCat_cat_texture.png" id="1_5wx7d"]
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_j7xer"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://ds6snpho6c7fn" path="res://Scenes/Buildings/Construction/cotr1.tscn" id="9_1qlld"]
 [ext_resource type="PackedScene" uid="uid://bpa42ftyw1ye2" path="res://Scenes/VillageHouse.tscn" id="10_tv2ra"]
 [ext_resource type="PackedScene" uid="uid://bvn43hdm1l6en" path="res://Scenes/Buildings/Construction/cotr3.tscn" id="11_llre6"]
+[ext_resource type="Texture2D" uid="uid://cuythouggfkis" path="res://Models/Characters/crebit.png" id="12_gtqam"]
 [ext_resource type="PackedScene" uid="uid://ecntucxd7j52" path="res://Scenes/Buildings/Suburbs/suburb1.tscn" id="12_sfmgt"]
 [ext_resource type="Texture2D" uid="uid://b0683fdxgulsv" path="res://Models/Characters/gmtk2024-logo.png" id="13_s64i3"]
 [ext_resource type="Texture2D" uid="uid://me1mrh3pkgv4" path="res://Models/Characters/Untitled.png" id="14_5op2x"]
@@ -463,6 +464,15 @@ scale = Vector2(0.5, 0.5)
 mouse_filter = 2
 texture = ExtResource("6_1qktu")
 
+[node name="TextureRect5" type="TextureRect" parent="Camera3D2/Menu"]
+visible = false
+layout_mode = 2
+offset_left = -170.0
+offset_top = -351.0
+offset_right = 790.0
+offset_bottom = 189.0
+texture = ExtResource("12_gtqam")
+
 [node name="Start2" type="Button" parent="Camera3D2/Menu"]
 visible = false
 layout_mode = 2
@@ -488,7 +498,16 @@ offset_left = 634.0
 offset_top = 157.0
 offset_right = 790.73
 offset_bottom = 188.0
-text = "Next Page"
+text = "Start game"
+
+[node name="Start5" type="Button" parent="Camera3D2/Menu"]
+visible = false
+layout_mode = 2
+offset_left = 634.0
+offset_top = 157.0
+offset_right = 790.73
+offset_bottom = 188.0
+text = "Back"
 
 [node name="Body" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.190211, 2.19201e-09, -0.0525329, 0.041784, 0.147366, 0.109308, 0.0455385, -0.135216, 0.11913, 0.721456, 0.041176, -0.922576)
@@ -652,3 +671,4 @@ texture = ExtResource("14_5op2x")
 [connection signal="pressed" from="Camera3D2/Menu/Start2" to="Camera3D2/Menu" method="_on_start_2_pressed"]
 [connection signal="pressed" from="Camera3D2/Menu/Start3" to="Camera3D2/Menu" method="_on_start_3_pressed"]
 [connection signal="pressed" from="Camera3D2/Menu/Start4" to="Camera3D2/Menu" method="_on_start_4_pressed"]
+[connection signal="pressed" from="Camera3D2/Menu/Start5" to="Camera3D2/Menu" method="_on_start_5_pressed"]

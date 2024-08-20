@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=4 uid="uid://bghho4kek3vva"]
+[gd_scene load_steps=18 format=4 uid="uid://bghho4kek3vva"]
 
 [ext_resource type="Script" path="res://Scripts/mouse.gd" id="1_6ubpe"]
 [ext_resource type="Script" path="res://Scripts/camera.gd" id="2_6rdtg"]
 [ext_resource type="Texture2D" uid="uid://dp4ns0yrj5403" path="res://Models/Characters/mouse_mouse_texture.png" id="3_jixj2"]
 [ext_resource type="Script" path="res://Scripts/hurtbox.gd" id="4_bsvby"]
+[ext_resource type="AudioStream" uid="uid://dj7v2g8cwflg2" path="res://SFX/684866__faircashew__mouse-squek.mp3" id="5_bm031"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w85ct"]
 
@@ -204,5 +205,9 @@ shape = SubResource("CapsuleShape3D_3r4ep")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.742795, 0)
 shape = SubResource("BoxShape3D_rloml")
+
+[node name="squeakSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_bm031")
+volume_db = -20.0
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

@@ -7,6 +7,7 @@ extends CharacterBody3D
 @export var hp = 1
 
 @onready var tracker = $ScoreTracker
+@onready var squeak = $squeakSFX
 
 #mouse focus on game in desktop copy
 func _ready():
@@ -68,3 +69,4 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		var cheese = area.get_node("..")
 		cheese.queue_free()
 		tracker.update_score(1000)
+		squeak.play()

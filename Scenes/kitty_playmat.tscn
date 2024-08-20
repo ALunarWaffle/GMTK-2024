@@ -29,6 +29,7 @@ sky_material = SubResource("ProceduralSkyMaterial_hqfd7")
 background_mode = 2
 sky = SubResource("Sky_f16uu")
 ambient_light_color = Color(0.38556, 0.57763, 1, 1)
+ambient_light_energy = 0.8
 tonemap_mode = 2
 glow_enabled = true
 
@@ -47,7 +48,7 @@ environment = SubResource("Environment_i15ps")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.540198, -0.660905, -0.52095, -0.676891, -0.026565, 0.735605, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 light_color = Color(0.981387, 0.982675, 0.982619, 1)
-light_energy = 0.5
+light_energy = 0.3
 shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]

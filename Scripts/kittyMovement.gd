@@ -3,6 +3,8 @@ extends CharacterBody3D
 @onready var mesh = $Body
 @onready var ani = $AnimationPlayer
 @onready var tracker = get_node("../ScoreTracker")
+@onready var swipe = $SwipeSFX
+@onready var meow = $MeowSFX
 
 @export var SPEED = 7.0
 @export var JUMP_VELOCITY = 8
@@ -41,6 +43,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("attack"):
 		ani.play("swipe")
 		ani.queue("RESET")
+		swipe.play()
 
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir := Input.get_vector("left", "right", "up", "down")
@@ -56,10 +59,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-	
-	if Input.is_action_just_pressed("debug"):
-		stop_recording()
-		get_tree().change_scene_to_file("res://Scenes/mouse_playmat.tscn")
 
 	#stops character from sticking to walls while walking into them
 	move_and_slide()
@@ -91,3 +90,4 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		var cheese = area.get_node("..")
 		cheese.queue_free()
 		tracker.update_score(1000)
+		meow.play()

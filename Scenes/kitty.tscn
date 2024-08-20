@@ -1,8 +1,10 @@
-[gd_scene load_steps=27 format=4 uid="uid://usohdpuvqtrk"]
+[gd_scene load_steps=29 format=4 uid="uid://usohdpuvqtrk"]
 
 [ext_resource type="Script" path="res://Scripts/kittyMovement.gd" id="1_lckaq"]
 [ext_resource type="Script" path="res://Scripts/hitbox.gd" id="2_yuybr"]
 [ext_resource type="Texture2D" uid="uid://bbhkfkw11oynh" path="res://Models/Characters/newCat_cat_texture.png" id="3_lflc2"]
+[ext_resource type="AudioStream" uid="uid://b3woealirm1br" path="res://Models/Characters/219004__yap_audio_production__weaponswipe02.mp3" id="4_1q7os"]
+[ext_resource type="AudioStream" uid="uid://djtdr3h5x07so" path="res://SFX/732520__lukey1028__young-cat-meow.mp3" id="5_k3nti"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7tn7d"]
 height = 0.1
@@ -415,5 +417,12 @@ libraries = {
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20191, 0)
 shape = SubResource("BoxShape3D_w60l4")
+
+[node name="SwipeSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_1q7os")
+volume_db = -5.0
+
+[node name="MeowSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_k3nti")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

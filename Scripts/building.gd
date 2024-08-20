@@ -28,7 +28,7 @@ func take_damage(damage):
 						stream = load("res://SFX/750822__artninja__custom_short_explosion_impact_sound.wav")
 					
 					music.set_stream(stream)
-					music.volume_db = -10
+					music.volume_db = -15
 					get_tree().root.add_child(music)
 					music.play()
 				
